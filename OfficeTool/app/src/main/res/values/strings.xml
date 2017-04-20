@@ -22,7 +22,7 @@
     <string name="string_work">工作</string>
     <string name="string_personal">我</string>
     <string name="string_avatar">头像</string>
-    <string name="string_name">姓名</string>
+    <string name="string_name">昵称</string>
     <string name="string_gender">性别</string>
     <string name="string_phone">手机号</string>
     <string name="string_notjoinorcreate_company">还没加入或创建任何公司~</string>

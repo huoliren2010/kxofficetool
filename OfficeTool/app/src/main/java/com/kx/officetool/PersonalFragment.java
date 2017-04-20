@@ -26,6 +26,7 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
     private static final int REQUEST_CROP = 0x1025;
     UserInfo mUserInfo;
     ImageView mIvAvatar;
+    TextView mTvNickName;
     TextView mTvGender;
 
     @Nullable
@@ -43,6 +44,8 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
         viewRoot.findViewById(R.id.viewroot_usr_gender).setOnClickListener(this);
         viewRoot.findViewById(R.id.btn_logout).setOnClickListener(this);
         mIvAvatar = (ImageView) viewRoot.findViewById(R.id.iv_avatar);
+        mTvNickName = (TextView) viewRoot.findViewById(R.id.tv_nickname);
+        mTvNickName.setText(mUserInfo.getUserNickName());
         mTvGender = (TextView) viewRoot.findViewById(R.id.tv_gender);
         mTvGender.setText(mUserInfo.getGender());
         LoadUserAvatar.getInstance(getActivity()).loadAvatar(mIvAvatar, mUserInfo.getUserAvatar());
