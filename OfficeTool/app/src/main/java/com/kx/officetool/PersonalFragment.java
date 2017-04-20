@@ -58,6 +58,8 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
                 final PopupWindow popupWindow = new PopupWindow(getActivity());
                 View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_select_gender, null);
                 popupWindow.setContentView(view);
+                popupWindow.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+                popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
                 popupWindow.setOutsideTouchable(true);
                 RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.radiogroup);
                 radioGroup.check(mUserInfo.getUserGender() == UserInfo.GENDER.BOY ? R.id.radiobutton_boy : R.id.radiobutton_girl);
