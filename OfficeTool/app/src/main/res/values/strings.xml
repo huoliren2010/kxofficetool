@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name">OfficeTool</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_phone">手机号码</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登录</string>
+    <string name="action_sign_out">退出登录</string>
+    <string name="action_sign_in_short">登录</string>
+    <string name="error_invalid_phonenumber">手机号码格式有误</string>
+    <string name="error_invalid_password">密码太短了</string>
+    <string name="error_incorrect_password">密码有误</string>
+    <string name="error_field_required">不能为空</string>
+
+    <string name="string_forget_psw">忘记密码？</string>
+    <string name="string_regist">注册</string>
+    <string name="action_next">下一步</string>
+    <string name="prompt_verifycode">请输入验证码</string>
+    <string name="string_msg">消息</string>
+    <string name="string_contact">通讯录</string>
+    <string name="string_work">工作</string>
+    <string name="string_personal">我</string>
+    <string name="string_avatar">头像</string>
+    <string name="string_name">姓名</string>
+    <string name="string_gender">性别</string>
+    <string name="string_phone">手机号</string>
+    <string name="string_notjoinorcreate_company">还没加入或创建任何公司~</string>
+    <string name="string_joincompany">加入公司</string>
+    <string name="string_createcompany">创建公司</string>
+    <string name="search_header">搜</string>
+    <string name="string_input_companyname">请输入公司名字</string>
+    <string name="string_input_companyid">请输入公司ID</string>
+    <string name="string_search">搜索</string>
+    <string name="string_noinfo_record">没有记录呢</string>
+    <string name="string_input_createcompany_name_hint">请输入要创建公司的名称：</string>
+    <string name="string_sure">确定</string>
+    <string name="string_createcompany_success">创建成功</string>
+    <string name="string_format_company_name">企业名称：%1$s</string>
+    <string name="string_goto_manager_curr">立即进入</string>
+    <string name="string_format_company_id">公司id：%s</string>
+    <string name="string_daily_sign">签到</string>
+    <string name="string_hols">请假</string>
+    <string name="string_post_board">发布公告</string>
+    <string name="string_order_meetingroom">预约会议室</string>
+    <string name="string_company_details">公司信息</string>
+    <string name="string_company_avatar">公司Logo</string>
+    <string name="string_company_name">公司名字</string>
+    <string name="string_company_id">公司id</string>
+    <string name="string_company_manager">管理员</string>
+    <string name="string_company_meetingroom">会议室</string>
+    <string name="string_meetingroom_status_used">使用中</string>
+    <string name="string_meetingroom_status_idle">空闲</string>
+    <string name="string_meetingroom_status_ordering">已预定</string>
+    <string name="string_format_meetingroom_time">%1$s 到 %2$s</string>
+    <string name="string_sex_boy">男</string>
+    <string name="string_sex_girl">女</string>
+    <string name="string_helper_name">贴心小助理</string>
+    <string name="string_sign_list">签到记录</string>
+    <string name="string_sign">签到</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="string_finish">完成</string>
+    <string name="string_sign_hint">签到备注</string>
+    <string name="string_trim">微调</string>
+    <string name="prompt_nickname">用户名</string>
+    <string name="string_regist_success">注册成功</string>
+    <string name="string_regist_failed">注册失败</string>
+    <string name="error_incorrect_nickorpassword">账号或密码有误</string>
+    <string name="string_login_success">登录成功</string>
+</resources>

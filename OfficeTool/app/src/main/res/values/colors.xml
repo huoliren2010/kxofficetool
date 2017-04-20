@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="top_bar_normal_bg">#22292C</color>
+    <color name="color_maincolor_bg">#EDEDED</color>
+    <drawable name="normal_white_color">#ffffff</drawable>
+    <drawable name="normal_blue_color">#45ACFE</drawable>
+    <drawable name="press_blue_color">#225ade</drawable>
+    <drawable name="press_white_color">#d6d2d2</drawable>
+    <color name="color_split_line">#80000000</color>
+</resources>

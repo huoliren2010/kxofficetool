@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/radiogroup"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:background="@android:color/white">
+
+    <RadioButton
+        android:id="@+id/radiobutton_boy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/string_sex_boy" />
+
+    <RadioButton
+        android:id="@+id/radiobutton_girl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/string_sex_girl" />
+</RadioGroup>

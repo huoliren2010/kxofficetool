@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@color/top_bar_normal_bg"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_contact_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/string_work"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="+"
+            android:textColor="@android:color/white"
+            android:textSize="38sp" />
+    </RelativeLayout>
+
+    <ViewStub
+        android:id="@+id/viewstub_notjoin_anycompany"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout="@layout/layout_work_notjoin_anycompany" />
+
+    <LinearLayout
+        android:id="@+id/viewroot_joinedcompany"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/viewroot_companyinfo_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:background="@android:color/white"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp">
+
+            <ImageView
+                android:id="@+id/iv_company_avatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:src="@mipmap/ic_personal_default" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/iv_company_avatar"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_companename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="企业名"
+                    android:textColor="#ed000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_companeid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/string_format_company_id"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.GridLayout
+                android:id="@+id/gridlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:background="@android:color/white"
+                app:columnCount="2"
+                android:layoutMode="opticalBounds"
+                app:rowCount="2"
+                app:useDefaultMargins="true">
+
+                <TextView
+                    android:id="@+id/tv_daily_sign"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_columnWeight="1"
+                    android:drawablePadding="8dp"
+                    android:drawableTop="@mipmap/ic_daily_sign"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:text="@string/string_daily_sign"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_post_hols"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_columnWeight="1"
+                    android:drawablePadding="8dp"
+                    android:drawableTop="@mipmap/ic_post_hols"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:text="@string/string_hols"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_order_meetingroom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_columnWeight="1"
+                    android:drawablePadding="8dp"
+                    android:drawableTop="@mipmap/ic_order_mettingroom"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:text="@string/string_order_meetingroom"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_post_board"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_columnWeight="1"
+                    android:drawablePadding="8dp"
+                    android:drawableTop="@mipmap/ic_post_board"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:text="@string/string_post_board"
+                    android:textSize="16sp" />
+
+            </android.support.v7.widget.GridLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/gridlayout"
+                android:layout_alignLeft="@id/gridlayout"
+                android:layout_alignRight="@id/gridlayout"
+                android:layout_alignTop="@id/gridlayout">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_centerInParent="true"
+                    android:background="@color/color_split_line" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@color/color_split_line" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

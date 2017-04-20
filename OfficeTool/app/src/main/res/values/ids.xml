@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="mainpage_indicates_str">
+        <item>@string/string_msg</item>
+        <item>@string/string_contact</item>
+        <item>@string/string_work</item>
+        <item>@string/string_personal</item>
+    </string-array>
+    <string-array name="mainpage_indicates_icon">
+        <item>@drawable/ic_msg_selector</item>
+        <item>@drawable/ic_contact_selector</item>
+        <item>@drawable/ic_work_selector</item>
+        <item>@drawable/ic_personal_selector</item>
+    </string-array>
+
+</resources>
