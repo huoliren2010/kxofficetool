@@ -1,0 +1,9 @@
+﻿user(id,username, password, avatar, phonenumber, gender, department,sign);
+department(id, partname, companyid);
+company(id, name, ownerid);
+meetingroom(id, rname, companyid);
+notice(id, departid, message);
+approval(id, uid, message, starttime, endtime, duration, departid);
+dailysign(id, uid, address, time, departid);
+
+create table user (id int not null auto_increment, username char(20), primary key(id), password char(20), avatar char(128), phonenumber char(11), gender char(1), department int, sign char(128), primary key(id))engine=innodb default charset=utf8;
