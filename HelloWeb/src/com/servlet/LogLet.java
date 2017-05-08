@@ -13,6 +13,8 @@ import org.omg.CORBA.PUBLIC_MEMBER;
 
 import com.service.Service;
 
+import util.Response;
+
 public class LogLet extends HttpServlet {
 
 	private static final long serialVersionUID = 369840050351775312L;
@@ -21,8 +23,7 @@ public class LogLet extends HttpServlet {
 	 * The doGet method of the Server let.
 	 */
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// 接收信息
 		String username = request.getParameter("username");
@@ -35,28 +36,27 @@ public class LogLet extends HttpServlet {
 		Service serv = new Service();
 
 		// 验证处理
-		boolean loged = serv.login(username, password);
-		if (loged) {
+		String strUserInfo = serv.login(username, password);
+		int status = Response.ERROR_CODE;
+		if (strUserInfo != null) {
 			System.out.print("Succss");
 			confirm = "登陆成功";
 			request.getSession().setAttribute("username", username);
-			// response.sendRedirect("welcome.jsp");
+			status = Response.SUCCESS_CODE;
 		} else {
 			System.out.print("Failed");
 			confirm = "账号或密码不正确";
 		}
-		 // 返回信息
-		 response.setCharacterEncoding("UTF-8");
-		 response.setContentType("text/html");
-		 PrintWriter out = response.getWriter();
-		 int status = loged ? 200 : 400;
-			String resp = String.format("{\"status\":%d,\"message\":%s}", status, confirm);
-		 out.print(resp);
-//		 out.print("用户名：" + username);
-//		 out.print("密码：" + password);
-//		 out.print(confirm);
-		 out.flush();
-		 out.close();
+		// 返回信息
+		response.setCharacterEncoding("UsTF-8");
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+
+		String resp = new Response(status, strUserInfo, confirm).toString();
+		System.out.println("login resp="+resp);
+		out.print(resp);
+		out.flush();
+		out.close();
 
 	}
 
@@ -64,8 +64,7 @@ public class LogLet extends HttpServlet {
 	 * The doPost method of the Server let.
 	 */
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// 测试为何手机端中文乱码，电脑正常
 		// System.out.println("u1--"+username);

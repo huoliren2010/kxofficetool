@@ -9,7 +9,15 @@
 		<servlet-name>RegLet</servlet-name>
 		<servlet-class>com.servlet.RegLet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>updateUserAvatar</servlet-name>
+		<servlet-class>com.servlet.UploadUserAvatar</servlet-class>
+	</servlet>
 
+	<servlet-mapping>
+		<servlet-name>updateUserAvatar</servlet-name>
+		<url-pattern>/updateUserAvatar</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>LogLet</servlet-name>
 		<url-pattern>/LogLet</url-pattern>

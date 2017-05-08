@@ -8,7 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONObject;
+
 import com.service.Service;
+
+import util.Response;
 
 public class RegLet extends HttpServlet {
 
@@ -33,13 +37,15 @@ public class RegLet extends HttpServlet {
 		// String password = request.getParameter("r_password");
 		System.out.println("user("+username+","+password+","+phonenumber+") registing");
 		// 验证处理
-		boolean reged = serv.register(username, password, phonenumber);
-		System.out.println("test" + reged);
-		if (reged) {
+		String strUserInfo = serv.register(username, password, phonenumber);
+		System.out.println("test" + strUserInfo);
+		int status = Response.ERROR_CODE;
+		if (strUserInfo != null) {
 			System.out.print("Succss regist");
 			confirm = "注册成功";
 			request.getSession().setAttribute("username", username);
-			// response.sendRedirect("welcome.jsp");
+			status = Response.SUCCESS_CODE;
+			
 		} else {
 			System.out.print("Failed");
 			confirm = "注册失败，此处注册有毛病";
@@ -49,8 +55,9 @@ public class RegLet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		int status = reged ? 200 : 400;
-		String resp = String.format("{\"status\":%d,\"message\":%s}", status, confirm);
+		new Response(status, strUserInfo, confirm).toString();
+		String resp = new Response(status, strUserInfo, confirm).toString();
+		System.out.println("regist resp="+resp);
 		out.print(resp);
 		// out.print("用户名：" + username);
 		// out.print("密码：" + password);
