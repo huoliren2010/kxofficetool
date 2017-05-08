@@ -55,7 +55,6 @@ public class RegLet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		new Response(status, strUserInfo, confirm).toString();
 		String resp = new Response(status, strUserInfo, confirm).toString();
 		System.out.println("regist resp="+resp);
 		out.print(resp);
