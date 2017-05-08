@@ -8,6 +8,8 @@ import com.db.DBManager;
 import info.Company;
 import info.DepartMent;
 import info.MeetingRoom;
+import info.Message;
+import info.Notice;
 import info.UserInfo;
 
 public class Service {
@@ -190,7 +192,7 @@ public class Service {
 	}
 	
 	public String createNotice(int departid, String message){
-		String strSql = "insert into notice(roomname, companyid) values('" + roomName + "'," + companyid +")";
+		String strSql = "insert into notice(message, departid) values('" + message + "'," + departid +")";
 		// 获取DB对象
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
@@ -198,16 +200,16 @@ public class Service {
 		int ret = dbmanager.executeUpdate(strSql);
 		try {
 			if (ret != 0) {
-				strSql = "select * from companyRoom where roomname='" + roomName + "' and companyid=" + companyid;
+				strSql = "select * from notice where message='" + message + "' and departid=" + departid;
 				ResultSet rs = dbmanager.executeQuery(strSql);
 				if (rs.next()) {
 					int didColoumn = rs.findColumn("id");
 					int did = rs.getInt(didColoumn);
-					int rnameColoumn = rs.findColumn("roomname");
+					int rnameColoumn = rs.findColumn("message");
 					String rname = rs.getString(rnameColoumn);
-					int cidColoumn = rs.findColumn("companyid");
+					int cidColoumn = rs.findColumn("departid");
 					int cid = rs.getInt(cidColoumn);
-					MeetingRoom meetingRoom = new MeetingRoom(did, rname, cid);
+					Notice meetingRoom = new Notice(did, rname, cid);
 					dbmanager.closeDB();
 					return meetingRoom.toString();
 				}
@@ -219,6 +221,31 @@ public class Service {
 		return null;
 	}
 	
+	public String createMessage(int uid, int fid, String msg){
+		String strSql = "insert into message(uid, fid, msg) values("+uid+","+fid+",'" + msg + "')";
+		// 获取DB对象
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+
+		int ret = dbmanager.executeUpdate(strSql);
+		try {
+			if (ret != 0) {
+				strSql = "select * from message where uid="+uid+"and fid="+fid+"and msg="+"'" + msg + "'";
+				ResultSet rs = dbmanager.executeQuery(strSql);
+				if (rs.next()) {
+					int didColoumn = rs.findColumn("id");
+					int id = rs.getInt(didColoumn);
+					Message message = new Message(id, uid, fid, msg);
+					dbmanager.closeDB();
+					return message.toString();
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		dbmanager.closeDB();
+		return null;
+	}
 	
 	public boolean updateUserAvatar(int uid, String fileavatar) {
 		String updateSql = "update user set avatar='" + fileavatar + "' where id=" + uid;
