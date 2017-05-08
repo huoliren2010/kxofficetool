@@ -5,7 +5,9 @@ import java.sql.SQLException;
 
 import com.db.DBManager;
 
+import info.Approval;
 import info.Company;
+import info.DailySign;
 import info.DepartMent;
 import info.MeetingRoom;
 import info.Message;
@@ -128,9 +130,10 @@ public class Service {
 		dbmanager.closeDB();
 		return null;
 	}
-	
+
 	public String createDepartMent(String departName, int companyid, int uid) {
-		String strSql = "insert into department(partname, companyid, leaderid) values('" + departName + "'," + companyid + ", "+uid+")";
+		String strSql = "insert into department(partname, companyid, leaderid) values('" + departName + "'," + companyid
+				+ ", " + uid + ")";
 		// 获取DB对象
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
@@ -138,7 +141,8 @@ public class Service {
 		int ret = dbmanager.executeUpdate(strSql);
 		try {
 			if (ret != 0) {
-				strSql = "select * from department where partname='" + departName + "' and companyid=" + companyid+" and leaderid="+uid;
+				strSql = "select * from department where partname='" + departName + "' and companyid=" + companyid
+						+ " and leaderid=" + uid;
 				ResultSet rs = dbmanager.executeQuery(strSql);
 				if (rs.next()) {
 					int didColoumn = rs.findColumn("id");
@@ -161,8 +165,8 @@ public class Service {
 		return null;
 	}
 
-	public String createRoom(String roomName, int companyid){
-		String strSql = "insert into companyRoom(roomname, companyid) values('" + roomName + "'," + companyid +")";
+	public String createRoom(String roomName, int companyid) {
+		String strSql = "insert into companyRoom(roomname, companyid) values('" + roomName + "'," + companyid + ")";
 		// 获取DB对象
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
@@ -190,9 +194,9 @@ public class Service {
 		dbmanager.closeDB();
 		return null;
 	}
-	
-	public String createNotice(int departid, String message){
-		String strSql = "insert into notice(message, departid) values('" + message + "'," + departid +")";
+
+	public String createNotice(int departid, String message) {
+		String strSql = "insert into notice(message, departid) values('" + message + "'," + departid + ")";
 		// 获取DB对象
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
@@ -220,9 +224,9 @@ public class Service {
 		dbmanager.closeDB();
 		return null;
 	}
-	
-	public String createMessage(int uid, int fid, String msg){
-		String strSql = "insert into message(uid, fid, msg) values("+uid+","+fid+",'" + msg + "')";
+
+	public String createMessage(int uid, int fid, String msg) {
+		String strSql = "insert into message(uid, fid, msg) values(" + uid + "," + fid + ",'" + msg + "')";
 		// 获取DB对象
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
@@ -230,7 +234,7 @@ public class Service {
 		int ret = dbmanager.executeUpdate(strSql);
 		try {
 			if (ret != 0) {
-				strSql = "select * from message where uid="+uid+"and fid="+fid+"and msg="+"'" + msg + "'";
+				strSql = "select * from message where uid=" + uid + "and fid=" + fid + "and msg=" + "'" + msg + "'";
 				ResultSet rs = dbmanager.executeQuery(strSql);
 				if (rs.next()) {
 					int didColoumn = rs.findColumn("id");
@@ -246,7 +250,63 @@ public class Service {
 		dbmanager.closeDB();
 		return null;
 	}
-	
+
+	public String createApproval(int uid, String message, String starttime, String endtime, String type, int leaderid) {
+		String strSql = "insert into approval(uid, message, starttime, endtime, type, leaderid) values(" + uid + ",'"
+				+ message + "','" + starttime + "','" + endtime + "','" + type + "," + leaderid + ")";
+		// 获取DB对象
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+
+		int ret = dbmanager.executeUpdate(strSql);
+		try {
+			if (ret != 0) {
+				strSql = "select * from approval where uid=" + uid + "and starttime='" + starttime + "' and type=" + "'"
+						+ type + "' and leaderid=" + leaderid;
+				ResultSet rs = dbmanager.executeQuery(strSql);
+				if (rs.next()) {
+					int didColoumn = rs.findColumn("id");
+					int id = rs.getInt(didColoumn);
+					Approval approval = new Approval(id, uid, message, starttime, endtime, type, leaderid);
+					dbmanager.closeDB();
+					return approval.toString();
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		dbmanager.closeDB();
+		return null;
+	}
+
+	public String createDailySign(int uid, String address, String time, int departid) {
+		String strSql = "insert into dailysign(uid, address, time, departid) values(" + uid + ",'" + address + "','"
+				+ time + "'," + departid + ")";
+		// 获取DB对象
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+
+		int ret = dbmanager.executeUpdate(strSql);
+		try {
+			if (ret != 0) {
+				strSql = "select * from dailysign where uid=" + uid + "and address='" + address + "' and time=" + "'"
+						+ time + " and departid=" + departid;
+				ResultSet rs = dbmanager.executeQuery(strSql);
+				if (rs.next()) {
+					int didColoumn = rs.findColumn("id");
+					int id = rs.getInt(didColoumn);
+					DailySign dailySign = new DailySign(id, uid, address, time, departid);
+					dbmanager.closeDB();
+					return dailySign.toString();
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		dbmanager.closeDB();
+		return null;
+	}
+
 	public boolean updateUserAvatar(int uid, String fileavatar) {
 		String updateSql = "update user set avatar='" + fileavatar + "' where id=" + uid;
 		DBManager sql = DBManager.createInstance();

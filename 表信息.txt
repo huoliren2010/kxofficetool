@@ -4,8 +4,8 @@ department(id, partname, companyid, leaderid);
 companyRoom(id, roomname, companyid);
 notice(id, departid, message);
 message(id, uid, fid, msg);
-approval(id, uid, message, starttime, endtime, duration, type);
-dailysign(id, uid, address, time);
+approval(id, uid, message, starttime, endtime,type, leaderid);
+dailysign(id, uid, address, time, departid);
 
 drop table notice;
 drop table message;
@@ -29,6 +29,6 @@ create table notice(id int not null auto_increment, departid int, message char(2
 
 create table message(id int not null auto_increment, uid int, fid int, msg char(255), primary key(id))engine=innodb default charset=utf8 auto_increment=1;
 
-create table approval(id int not null auto_increment, uid int, message char(255), starttime char(20), endtime char(20), duration char(10), type char(10), constraint FK_ApprovalShip foreign key (uid) references user(id) on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8 auto_increment=1;
+create table approval(id int not null auto_increment, uid int, message char(255), starttime char(20), endtime char(20), type char(10), leaderid int, constraint FK_ApprovalShip foreign key (uid) references user(id) on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8 auto_increment=1;
 
-create table dailysign(id int not null auto_increment, uid int, address char(128), time char(52), constraint FK_DailaySignShip foreign key (uid) references user(id)on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8 auto_increment=1;
+create table dailysign(id int not null auto_increment, uid int, address char(128), time char(52), departid int, constraint FK_DailaySignShip foreign key (uid) references user(id)on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8 auto_increment=1;
