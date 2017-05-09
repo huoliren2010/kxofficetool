@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.baidu.mapapi.SDKInitializer;
 import com.kx.officetool.infos.DailySignInfo;
 import com.kx.officetool.infos.LoadUserAvatar;
 import com.kx.officetool.infos.MyAddress;
@@ -99,7 +98,7 @@ public class DailySignActivity extends AppCompatActivity {
                 convertView.setTag(viewHolder);
             } else viewHolder = (ViewHolder) convertView.getTag();
             LoadUserAvatar.getInstance(DailySignActivity.this).loadAvatar(viewHolder.avatar, mUserInfo.getUserAvatar());
-            viewHolder.nickName.setText(mUserInfo.getUserNickName());
+            viewHolder.nickName.setText(mUserInfo.getUserName());
             DailySignInfo dailySignInfo = mListSignInfos.get(position);
             viewHolder.address.setText(dailySignInfo.getAddress());
             viewHolder.dateTime.setText(dailySignInfo.getTime());

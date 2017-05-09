@@ -1,10 +1,6 @@
 package com.kx.officetool.infos;
 
-
-import android.support.annotation.StringRes;
-
 import com.kx.officetool.R;
-
 import java.io.Serializable;
 
 public class UserInfo implements Serializable {
@@ -16,95 +12,127 @@ public class UserInfo implements Serializable {
 
     public enum GENDER {GIRL, BOY}
 
-    /**
-     * 用户所在公司id
-     */
-    int companyId = -1;
-    /**
-     * 用户昵称
-     */
-    private String userNickName;
-    /**
-     * 用户性别 默认boy
-     */
-    private GENDER userGender = GENDER.BOY;
-    /**
-     * 用户手机号
-     */
-    private String userPhoneNumber;
-    /**
-     * 用户头像
-     */
-    String userAvatar;
-
-    /**
-     * 所在公司级别
-     */
-    Level level = Level.NORMAL;
-
-    public int getCompanyId() {
-        return companyId;
-    }
+    String password;
+    String gender;
+    int departmentid = -1;
+    String phonenumber;
+    String signmessage;
+    int id;
+    String avatar;
+    String username;
 
     public UserInfo setCompanyId(int companyId) {
-        this.companyId = companyId;
         return this;
     }
 
     public boolean isJoinedInCompany() {
-        return companyId != -1;
+        return false;
     }
 
     public String getUserAvatar() {
-        return userAvatar;
+        return avatar;
     }
 
-    public UserInfo setUserAvatar(String userAvatar) {
-        this.userAvatar = userAvatar;
+    public UserInfo setUserAvatar(String avatar) {
+        this.avatar = avatar;
         return this;
     }
 
     public Level getLevel() {
-        return level;
+        return Level.NORMAL;
     }
 
     public UserInfo setLevel(Level level) {
-        this.level = level;
         return this;
     }
 
     public boolean isManager() {
-        return level == Level.ADVANCED;
+        return false;
     }
 
-    public String getUserNickName() {
-        return userNickName;
+    public String getUserName() {
+        return username;
     }
 
-    public UserInfo setUserNickName(String userNickName) {
-        this.userNickName = userNickName;
+    public UserInfo setUserName(String userNickName) {
+        this.username = userNickName;
         return this;
     }
 
     public int getGender() {
-        return userGender == GENDER.BOY ? R.string.string_sex_boy : R.string.string_sex_girl;
+        return true ? R.string.string_sex_boy : R.string.string_sex_girl;
     }
 
     public GENDER getUserGender() {
-        return userGender;
+        return GENDER.BOY;
     }
 
     public UserInfo setUserGender(GENDER userGender) {
-        this.userGender = userGender;
         return this;
     }
 
-    public String getUserPhoneNumber() {
-        return userPhoneNumber;
+    public String getPhoneNumber() {
+        return phonenumber;
     }
 
-    public UserInfo setUserPhoneNumber(String userPhoneNumber) {
-        this.userPhoneNumber = userPhoneNumber;
+    public UserInfo setPhoneNumber(String userPhoneNumber) {
+        this.phonenumber = userPhoneNumber;
         return this;
+    }
+
+    public String getSignmessage() {
+        return signmessage;
+    }
+
+    public void setSignmessage(String signmessage) {
+        this.signmessage = signmessage;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getDepartmentid() {
+        return departmentid;
+    }
+
+    public void setDepartmentid(int departmentid) {
+        this.departmentid = departmentid;
+    }
+
+    public int getId() {
+        return id;
     }
 }

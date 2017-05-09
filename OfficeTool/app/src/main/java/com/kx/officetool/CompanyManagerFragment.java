@@ -1,6 +1,5 @@
 package com.kx.officetool;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -67,7 +66,7 @@ public class CompanyManagerFragment extends Fragment implements View.OnClickList
                     convertView.setTag(viewHolder);
                 } else viewHolder = (ViewHolder) convertView.getTag();
                 LoadUserAvatar.getInstance(getActivity()).loadAvatar(viewHolder.avatar, listMangers.get(position).getUserAvatar());
-                viewHolder.name.setText(listMangers.get(position).getUserNickName());
+                viewHolder.name.setText(listMangers.get(position).getUserName());
                 return convertView;
             }
         });

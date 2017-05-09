@@ -45,7 +45,7 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
         viewRoot.findViewById(R.id.btn_logout).setOnClickListener(this);
         mIvAvatar = (ImageView) viewRoot.findViewById(R.id.iv_avatar);
         mTvNickName = (TextView) viewRoot.findViewById(R.id.tv_nickname);
-        mTvNickName.setText(mUserInfo.getUserNickName());
+        mTvNickName.setText(mUserInfo.getUserName());
         mTvGender = (TextView) viewRoot.findViewById(R.id.tv_gender);
         mTvGender.setText(mUserInfo.getGender());
         LoadUserAvatar.getInstance(getActivity()).loadAvatar(mIvAvatar, mUserInfo.getUserAvatar());

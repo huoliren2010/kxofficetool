@@ -1,18 +1,40 @@
 package com.kx.officetool.service;
 
+import com.kx.officetool.infos.UserInfo;
+import com.kx.officetool.service.response.RegResponse;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WebService {
-    private static String IP = "192.168.60.177:8080";
-//    private static String IP = "192.168.0.105:8080";
+//    private static String HOST = "192.168.60.177:8080";
+    private static String HOST = "http://192.168.0.105:8080/";
     //把TOMCATURL改为你的服务地址
-
+private Retrofit mRetrofitInstance = new Retrofit.Builder().baseUrl(HOST).addConverterFactory(GsonConverterFactory.create())
+        .client(new OkHttpClient.Builder().connectTimeout(30, TimeUnit.SECONDS).build()).build();
     private static final String ACTION_LOGIN = "LogLet";
     private static final String ACTION_REGIST = "RegLet";
+    private IWebService mIWebService = null;
+    private static WebService mInstance = null;
+    private WebService(){
+        mIWebService = mRetrofitInstance.create(IWebService.class);
+    }
+    public static WebService getInstance(){
+        if(mInstance == null){
+            mInstance = new WebService();
+        }
+        return mInstance;
+    }
 
     /**
      * 登录
@@ -27,7 +49,7 @@ public class WebService {
         try {
             // 用户名 密码
             // URL 地址
-            String path = "http://" + IP + "/HelloWeb/";
+            String path = "http://" + HOST + "/HelloWeb/";
             path = path + ACTION_LOGIN + "?username=" + username + "&password=" + password;
 
             conn = (HttpURLConnection) new URL(path).openConnection();
@@ -69,44 +91,14 @@ public class WebService {
      * @param phonenumber
      * @return
      */
-    public static String regist(String username, String password, String phonenumber) {
-        HttpURLConnection conn = null;
-        InputStream is = null;
-
+    public UserInfo regist(String username, String password, String phonenumber) {
+        Call<RegResponse> regist = mIWebService.regist(username, password, phonenumber);
         try {
-            // 用户名 密码
-            // URL 地址
-            String path = "http://" + IP + "/HelloWeb/";
-            path = path + ACTION_REGIST + "?username=" + username + "&password=" + password + "&phonenumber=" + phonenumber;
-
-            conn = (HttpURLConnection) new URL(path).openConnection();
-            conn.setConnectTimeout(3000); // 设置超时时间
-            conn.setReadTimeout(3000);
-            conn.setDoInput(true);
-            conn.setRequestMethod("GET"); // 设置获取信息方式
-            conn.setRequestProperty("Charset", "UTF-8"); // 设置接收数据编码格式
-
-            if (conn.getResponseCode() == 200) {
-                is = conn.getInputStream();
-                return parseInfo(is);
-            }
-            return null;
-
-        } catch (Exception e) {
+            Response<RegResponse> execute = regist.execute();
+            UserInfo data = execute.body().getData();
+            return data;
+        } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            // 意外退出时进行连接关闭保护
-            if (conn != null) {
-                conn.disconnect();
-            }
-            if (is != null) {
-                try {
-                    is.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
         }
         return null;
     }

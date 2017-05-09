@@ -216,7 +216,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             if (success) {
                 ToastUtil.showShort(LoginActivity.this, R.string.string_login_success);
-                SharedPreferencesUtil.putObject(LoginActivity.this, UserInfo.KEY_USERINFO_OBJ, new UserInfo().setUserNickName(mNickName.getText().toString()));
+                SharedPreferencesUtil.putObject(LoginActivity.this, UserInfo.KEY_USERINFO_OBJ, new UserInfo().setUserName(mNickName.getText().toString()));
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 finish();
             } else {

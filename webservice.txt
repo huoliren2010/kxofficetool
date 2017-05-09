@@ -1,0 +1,4 @@
+web接口
+
+/createCompany?companyname=xxxx&uid=123 创建公司
+

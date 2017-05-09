@@ -20,16 +20,13 @@ import com.kx.officetool.infos.UserInfo;
 import com.kx.officetool.service.WebService;
 import com.kx.officetool.utils.CommonUtil;
 import com.kx.officetool.utils.SharedPreferencesUtil;
-import com.kx.officetool.utils.ToastUtil;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class RegistActivity extends AppCompatActivity implements View.OnClickListener {
     private Button mBtnRegist = null;
     private EditText mEditTextNickName = null, mEditTextPsw = null, mEditTextPhoneNumber = null;
     private View mProgressView;
     private View mLoginFormView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,14 +43,6 @@ public class RegistActivity extends AppCompatActivity implements View.OnClickLis
                 attempRegist();
             }
         });
-    }
-
-    private void ensureResult(boolean issuccess) {
-        if (issuccess) {
-            SharedPreferencesUtil.putObject(RegistActivity.this, UserInfo.KEY_USERINFO_OBJ, new UserInfo().setUserPhoneNumber(mEditTextPhoneNumber.getText().toString()).setUserNickName(mEditTextNickName.getText().toString()));
-            startActivity(new Intent(RegistActivity.this, MainActivity.class));
-            finish();
-        }
     }
 
     private void attempRegist() {
@@ -73,12 +62,27 @@ public class RegistActivity extends AppCompatActivity implements View.OnClickLis
             mEditTextPhoneNumber.setError(getString(R.string.error_invalid_phonenumber));
             return;
         }
-        String nickname = mEditTextNickName.getText().toString();
-        String password = mEditTextPsw.getText().toString();
-        String phonenumber = mEditTextPhoneNumber.getText().toString();
+        final String nickname = mEditTextNickName.getText().toString();
+        final String password = mEditTextPsw.getText().toString();
+        final String phonenumber = mEditTextPhoneNumber.getText().toString();
         showProgress(true);
-        mRegistTask = new UserRegistTask(nickname, password, phonenumber);
-        mRegistTask.execute((Void) null);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                UserInfo userInfo = WebService.getInstance().regist(nickname, password, phonenumber);
+                if (userInfo != null) {
+                    SharedPreferencesUtil.putObject(RegistActivity.this, UserInfo.KEY_USERINFO_OBJ, userInfo);
+                    startActivity(new Intent(RegistActivity.this, MainActivity.class));
+                    finish();
+                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        showProgress(false);
+                    }
+                });
+            }
+        }).start();
     }
 
     @Override
@@ -124,49 +128,6 @@ public class RegistActivity extends AppCompatActivity implements View.OnClickLis
             // and hide the relevant UI components.
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
-        }
-    }
-
-    private UserRegistTask mRegistTask = null;
-    public class UserRegistTask extends AsyncTask<Void, Void, String> {
-
-        private final String mNickname;
-        private final String mPassword;
-        private final String mPhoneNumber;
-
-        UserRegistTask(String nickname, String password, String phonenumber) {
-            mNickname = nickname;
-            mPassword = password;
-            mPhoneNumber = phonenumber;
-        }
-
-        @Override
-        protected String doInBackground(Void... params) {
-            return WebService.regist(mNickname, mPassword, mPhoneNumber);
-        }
-
-        @Override
-        protected void onPostExecute(final String response) {
-            mRegistTask = null;
-            showProgress(false);
-            try {
-                if (TextUtils.isEmpty(response)) {
-                    ToastUtil.showShort(RegistActivity.this, R.string.string_regist_failed);
-                } else {
-                    JSONObject jsonObject = new JSONObject(response);
-                    boolean success = (jsonObject.getInt("status") == 200);
-                    ToastUtil.showShort(RegistActivity.this, success ? getResources().getString(R.string.string_regist_success) : jsonObject.getString("message")/*R.string.string_regist_failed*/);
-                    ensureResult(success);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-
-        @Override
-        protected void onCancelled() {
-            mRegistTask = null;
-            showProgress(false);
         }
     }
 }
