@@ -23,7 +23,6 @@ public class ToastUtil {
      * @param message
      */
     public static void showShort(Context context, int message) {
-
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 

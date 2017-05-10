@@ -1,4 +1,4 @@
-﻿user(id,username, password, phonenumber, avatar, gender, department,sign);
+﻿user(id,username, password, phonenumber, avatar, gender, departmentid,signmessage);
 company(id, name, ownerid);
 department(id, partname, companyid, leaderid);
 companyRoom(id, roomname, companyid);
@@ -16,7 +16,7 @@ drop table department;
 drop table company;
 drop table user;
 
-create table user (id int not null auto_increment, username char(20), password char(20), phonenumber char(11), avatar char(128), gender char(1), department int, sign char(128), primary key(id))engine=innodb default charset=utf8;
+create table user (id int not null auto_increment, username char(20), password char(20), phonenumber char(11), avatar char(128), gender char(1), departmentid int, signmessage char(128), primary key(id))engine=innodb default charset=utf8;
 
 create table company(id int not null auto_increment, name char(52), ownerid int,
 constraint FK_CompanyShip foreign key (ownerid) references user(id) on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8;

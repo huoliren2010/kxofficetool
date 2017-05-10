@@ -9,10 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONObject;
 import org.omg.CORBA.PUBLIC_MEMBER;
 
 import com.service.Service;
 
+import info.UserInfo;
 import util.Response;
 
 public class LogLet extends HttpServlet {
@@ -36,9 +38,9 @@ public class LogLet extends HttpServlet {
 		Service serv = new Service();
 
 		// 验证处理
-		String strUserInfo = serv.login(username, password);
+		UserInfo userInfo = serv.login(username, password);
 		int status = Response.ERROR_CODE;
-		if (strUserInfo != null) {
+		if (userInfo != null) {
 			System.out.print("Succss");
 			confirm = "登陆成功";
 			request.getSession().setAttribute("username", username);
@@ -48,12 +50,12 @@ public class LogLet extends HttpServlet {
 			confirm = "账号或密码不正确";
 		}
 		// 返回信息
-		response.setCharacterEncoding("UsTF-8");
+		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
-		String resp = new Response(status, strUserInfo, confirm).toString();
-		System.out.println("login resp="+resp);
+		String resp = new Response(status, userInfo == null ? null : userInfo.toJSONObject(), confirm).toString();
+		System.out.println("login resp=" + resp);
 		out.print(resp);
 		out.flush();
 		out.close();

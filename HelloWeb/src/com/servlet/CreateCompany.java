@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.service.Service;
 
+import info.Company;
 import util.Response;
 
 public class CreateCompany extends HttpServlet {
@@ -27,10 +28,10 @@ public class CreateCompany extends HttpServlet {
 				// String password = request.getParameter("r_password");
 				System.out.println("company("+companyname+","+uid+") creating");
 				// 验证处理
-				String strCompanyInfo = serv.createCompany(companyname, uid);
-				System.out.println("test" + strCompanyInfo);
+				Company company = serv.createCompany(companyname, uid);
+				System.out.println("test" + company);
 				int status = Response.ERROR_CODE;
-				if (strCompanyInfo != null) {
+				if (company != null) {
 					System.out.print("Succss CreateCompany");
 					confirm = "创建公司成功";
 					status = Response.SUCCESS_CODE;
@@ -44,7 +45,7 @@ public class CreateCompany extends HttpServlet {
 				response.setCharacterEncoding("UTF-8");
 				response.setContentType("text/html");
 				PrintWriter out = response.getWriter();
-				String resp = new Response(status, strCompanyInfo, confirm).toString();
+				String resp = new Response(status, company.toJSONObject(), confirm).toString();
 				System.out.println("CreateCompany resp="+resp);
 				out.print(resp);
 				// out.print("用户名：" + username);

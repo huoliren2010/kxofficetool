@@ -12,6 +12,7 @@ import org.json.JSONObject;
 
 import com.service.Service;
 
+import info.UserInfo;
 import util.Response;
 
 public class RegLet extends HttpServlet {
@@ -35,17 +36,17 @@ public class RegLet extends HttpServlet {
 		String phonenumber = request.getParameter("phonenumber");
 		String confirm;
 		// String password = request.getParameter("r_password");
-		System.out.println("user("+username+","+password+","+phonenumber+") registing");
+		System.out.println("user(" + username + "," + password + "," + phonenumber + ") registing");
 		// 验证处理
-		String strUserInfo = serv.register(username, password, phonenumber);
-		System.out.println("test" + strUserInfo);
+		UserInfo userInfo = serv.register(username, password, phonenumber);
+		System.out.println("test" + userInfo.toString());
 		int status = Response.ERROR_CODE;
-		if (strUserInfo != null) {
+		if (userInfo != null) {
 			System.out.print("Succss regist");
 			confirm = "注册成功";
 			request.getSession().setAttribute("username", username);
 			status = Response.SUCCESS_CODE;
-			
+
 		} else {
 			System.out.print("Failed");
 			confirm = "注册失败，此处注册有毛病";
@@ -55,8 +56,8 @@ public class RegLet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		String resp = new Response(status, strUserInfo, confirm).toString();
-		System.out.println("regist resp="+resp);
+		String resp = new Response(status, userInfo == null ? null : userInfo.toJSONObject(), confirm).toString();
+		System.out.println("regist resp=" + resp);
 		out.print(resp);
 		// out.print("用户名：" + username);
 		// out.print("密码：" + password);

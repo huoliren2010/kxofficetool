@@ -3,6 +3,8 @@ package com.service;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.json.JSONObject;
+
 import com.db.DBManager;
 
 import info.Approval;
@@ -16,7 +18,7 @@ import info.UserInfo;
 
 public class Service {
 
-	public String login(String username, String password) {
+	public UserInfo login(String username, String password) {
 
 		// 获取Sql查询语句
 		String logSql = "select * from user where username ='" + username + "' and password ='" + password + "'";
@@ -53,7 +55,7 @@ public class Service {
 				userInfo.setDepartmentid(udepartmentid);
 				userInfo.setSignmessage(usignmessage);
 				dbmanager.closeDB();
-				return userInfo.toString();
+				return userInfo;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -62,7 +64,7 @@ public class Service {
 		return null;
 	}
 
-	public String register(String username, String password, String phonenumber) {
+	public UserInfo register(String username, String password, String phonenumber) {
 
 		// 获取Sql查询语句
 		String regSql = "insert into user (username,password, phonenumber) values('" + username + "','" + password
@@ -90,7 +92,7 @@ public class Service {
 					String uphone = rs.getString(uphoneColoumn);
 					UserInfo userInfo = new UserInfo(uid, uname, upsw, uphone);
 					dbmanager.closeDB();
-					return userInfo.toString();
+					return userInfo;
 				}
 			}
 		} catch (SQLException e) {
@@ -101,7 +103,7 @@ public class Service {
 		return null;
 	}
 
-	public String createCompany(String companyName, int uid) {
+	public Company createCompany(String companyName, int uid) {
 		String strSql = "insert into company(name, ownerid) values('" + companyName + "'," + uid + ")";
 		// 获取DB对象
 		DBManager dbmanager = DBManager.createInstance();
@@ -121,7 +123,7 @@ public class Service {
 					int cuid = rs.getInt(uidColoumn);
 					Company company = new Company(cid, cname, cuid);
 					dbmanager.closeDB();
-					return company.toString();
+					return company;
 				}
 			}
 		} catch (SQLException e) {

@@ -110,4 +110,29 @@ public class UserInfo {
 		this.signmessage = signmessage;
 	}
 
+	public JSONObject toJSONObject() {
+		JSONObject json = new JSONObject();
+		json.put("id", id);
+		if (username != null)
+			json.put("username", username);
+		if (password != null)
+			json.put("password", password);
+		if (avatar != null)
+			json.put("avatar", avatar);
+		else
+			json.put("avatar", "");
+		if (phonenumber != null)
+			json.put("phonenumber", phonenumber);
+		if (gender != null)
+			json.put("gender", gender);
+		else
+			json.put("gender", "M");
+		json.put("departmentid", departmentid);
+		if (signmessage != null)
+			json.put("signmessage", signmessage);
+		else
+			json.put("signmessage", "");
+		return json;
+	}
+
 }

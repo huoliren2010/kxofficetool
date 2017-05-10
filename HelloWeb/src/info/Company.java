@@ -48,4 +48,13 @@ public class Company {
 		this.ownerid = builder;
 	}
 
+	public JSONObject toJSONObject() {
+		JSONObject json = new JSONObject();
+		json.put("id", id);
+		if (companyName != null)
+			json.put("ownerid", ownerid);
+		if (companyName != null)
+			json.put("companyName", companyName);
+		return json;
+	}
 }
