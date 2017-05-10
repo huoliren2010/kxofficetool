@@ -11,15 +11,20 @@ public class CompanyInfo implements Serializable{
     /**
      * 公司id
      */
-    private int companyId;
+
+    int id;
     /**
      * 公司名字
      */
-    private String companyName;
+    String companyName;
+    /**
+     * 公司创始人id
+     */
+    int ownerid;
     /**
      * 公司头像地址
      */
-    private String companAvatarUrl;
+     String companAvatarUrl;
 
     /**
      * 公司成员
@@ -47,11 +52,11 @@ public class CompanyInfo implements Serializable{
     }
 
     public int getCompanyId() {
-        return companyId;
+        return id;
     }
 
     public void setCompanyId(int companyId) {
-        this.companyId = companyId;
+        this.id = companyId;
     }
 
     public String getCompanAvatarUrl() {
@@ -81,5 +86,21 @@ public class CompanyInfo implements Serializable{
             }
         }
         return listManager;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getOwnerid() {
+        return ownerid;
+    }
+
+    public void setOwnerid(int ownerid) {
+        this.ownerid = ownerid;
     }
 }

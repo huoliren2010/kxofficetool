@@ -21,7 +21,7 @@ import com.kx.officetool.service.WebService;
 import com.kx.officetool.utils.CommonUtil;
 import com.kx.officetool.utils.SharedPreferencesUtil;
 
-public class RegistActivity extends AppCompatActivity implements View.OnClickListener {
+public class RegistActivity extends BaseActivity implements View.OnClickListener {
     private Button mBtnRegist = null;
     private EditText mEditTextNickName = null, mEditTextPsw = null, mEditTextPhoneNumber = null;
     private View mProgressView;
@@ -72,6 +72,7 @@ public class RegistActivity extends AppCompatActivity implements View.OnClickLis
                 UserInfo userInfo = WebService.getInstance().regist(nickname, password, phonenumber);
                 if (userInfo != null) {
                     SharedPreferencesUtil.putObject(RegistActivity.this, UserInfo.KEY_USERINFO_OBJ, userInfo);
+                    mAppConfig.mUserInfo = userInfo;
                     startActivity(new Intent(RegistActivity.this, MainActivity.class));
                     finish();
                 }

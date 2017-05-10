@@ -1,15 +1,10 @@
 package com.kx.officetool;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.TextureView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,10 +12,11 @@ import android.widget.TextView;
 import com.kx.officetool.infos.Actions;
 import com.kx.officetool.infos.CompanyInfo;
 import com.kx.officetool.infos.UserInfo;
+import com.kx.officetool.service.WebService;
 import com.kx.officetool.utils.KeyBoardUtil;
 import com.kx.officetool.utils.SharedPreferencesUtil;
 
-public class CreateCompanyActivity extends AppCompatActivity implements View.OnClickListener {
+public class CreateCompanyActivity extends BaseActivity implements View.OnClickListener {
     private View mIvClearEdittextTxt, mViewInputPanel, mViewResultPanel;
     private EditText mEditText;
     private TextView mTvResultCompanyName = null;
@@ -60,10 +56,10 @@ public class CreateCompanyActivity extends AppCompatActivity implements View.OnC
 
     private void showInputPanel(boolean show) {
         focusEditText(show);
-        if(show){
+        if (show) {
             mViewResultPanel.setVisibility(View.GONE);
             mViewInputPanel.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             mViewResultPanel.setVisibility(View.VISIBLE);
             mViewInputPanel.setVisibility(View.GONE);
         }
@@ -84,13 +80,13 @@ public class CreateCompanyActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.iv_back:
                 focusEditText(false);
                 finish();
                 break;
             case R.id.btn_sure:
-                if(TextUtils.isEmpty(mEditText.getText().toString())){
+                if (TextUtils.isEmpty(mEditText.getText().toString())) {
                     mEditText.setError(getResources().getString(R.string.error_field_required));
                     return;
                 }
@@ -107,7 +103,7 @@ public class CreateCompanyActivity extends AppCompatActivity implements View.OnC
 
     @Override
     protected void onResume() {
-        if(mViewInputPanel.getVisibility() == View.VISIBLE){
+        if (mViewInputPanel.getVisibility() == View.VISIBLE) {
             focusEditText(true);
         }
         super.onResume();
@@ -121,23 +117,29 @@ public class CreateCompanyActivity extends AppCompatActivity implements View.OnC
 
     /**
      * 创建公司逻辑
+     *
      * @param companyName 公司名字
      */
-    private void createCompanyWithName(String companyName) {
-        CompanyInfo companyInfo = new CompanyInfo();
-        companyInfo.setCompanyName(companyName);
-        createCompany(companyInfo);
-
+    private void createCompanyWithName(final String companyName) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                CompanyInfo companyInfo = WebService.getInstance().createCompany(companyName, mAppConfig.mUserInfo.getId());
+                createCompany(companyInfo);
+            }
+        }).start();
     }
 
-    private void createCompany(CompanyInfo companyInfo) {
-        int companyId = 1001;
-        companyInfo.setCompanyId(companyId);
-        mTvResultCompanyName.setText(String.format(getResources().getString(R.string.string_format_company_name), companyInfo.getCompanyName()));
-        SharedPreferencesUtil.putObject(this, CompanyInfo.KEY_COMPANYINFO_OBJ, companyInfo);
-        onCompanyCreateSuccess();
+    private void createCompany(final CompanyInfo companyInfo) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mTvResultCompanyName.setText(String.format(getResources().getString(R.string.string_format_company_name), companyInfo.getCompanyName()));
+                SharedPreferencesUtil.putObject(CreateCompanyActivity.this, CompanyInfo.KEY_COMPANYINFO_OBJ, companyInfo);
+                onCompanyCreateSuccess();
+            }
+        });
     }
-
 
 
     private void onCompanyCreateSuccess() {

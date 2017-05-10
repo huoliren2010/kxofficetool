@@ -1,6 +1,8 @@
 package com.kx.officetool.service;
 
+import com.kx.officetool.infos.CompanyInfo;
 import com.kx.officetool.infos.UserInfo;
+import com.kx.officetool.service.response.CompanyResponse;
 import com.kx.officetool.service.response.LogResponse;
 import com.kx.officetool.service.response.RegResponse;
 
@@ -77,5 +79,15 @@ public class WebService {
         }
         return null;
     }
-
+    public CompanyInfo createCompany(String companyName, int uid) {
+        Call<CompanyResponse> create = mIWebService.createCompany(companyName, uid);
+        try {
+            Response<CompanyResponse> execute = create.execute();
+            CompanyInfo data = execute.body().getData();
+            return data;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

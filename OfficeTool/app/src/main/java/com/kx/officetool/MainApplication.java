@@ -19,5 +19,6 @@ public class MainApplication extends Application {
         locationService = new LocationService(getApplicationContext());
         mVibrator =(Vibrator)getApplicationContext().getSystemService(Service.VIBRATOR_SERVICE);
         SDKInitializer.initialize(getApplicationContext());
+        AppConfig.getInstance().setContext(getApplicationContext());
     }
 }

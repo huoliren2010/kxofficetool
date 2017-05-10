@@ -28,7 +28,7 @@ import org.json.JSONObject;
 /**
  * A login screen that offers login via phone/password.
  */
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
     UserInfo mUserInfo = null;
 
     /**
@@ -119,6 +119,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             if (userInfo != null) {
                                 ToastUtil.showShort(LoginActivity.this, R.string.string_login_success);
                                 SharedPreferencesUtil.putObject(LoginActivity.this, UserInfo.KEY_USERINFO_OBJ, userInfo);
+                                mAppConfig.mUserInfo = userInfo;
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                 finish();
                             } else {

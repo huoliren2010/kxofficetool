@@ -10,22 +10,22 @@
 		<servlet-class>com.servlet.RegLet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>updateUserAvatar</servlet-name>
+		<servlet-name>UpdateUserAvatar</servlet-name>
 		<servlet-class>com.servlet.UploadUserAvatar</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>updateUserAvatar</servlet-name>
-		<url-pattern>/updateUserAvatar</url-pattern>
+		<servlet-name>UpdateUserAvatar</servlet-name>
+		<url-pattern>/UpdateUserAvatar</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<servlet-name>createCompany</servlet-name>
+		<servlet-name>CreateCompany</servlet-name>
 		<servlet-class>com.servlet.CreateCompany</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>createCompany</servlet-name>
-		<url-pattern>/createCompany</url-pattern>
+		<servlet-name>CreateCompany</servlet-name>
+		<url-pattern>/CreateCompany</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>LogLet</servlet-name>

@@ -1,6 +1,7 @@
 package com.kx.officetool.service;
 
 import com.kx.officetool.infos.UserInfo;
+import com.kx.officetool.service.response.CompanyResponse;
 import com.kx.officetool.service.response.LogResponse;
 import com.kx.officetool.service.response.RegResponse;
 
@@ -13,4 +14,6 @@ public interface IWebService {
     Call<RegResponse> regist(@Query("username") String username, @Query("password") String password, @Query("phonenumber") String phonenumber);
     @GET("HelloWeb/LogLet")
     Call<LogResponse> login(@Query("username") String username, @Query("password") String password);
+    @GET("HelloWeb/CreateCompany")
+    Call<CompanyResponse> createCompany(@Query("companyname") String companyname, @Query("uid") int uid);
 }
