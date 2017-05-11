@@ -1,5 +1,9 @@
 package info;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class Company {
@@ -55,6 +59,21 @@ public class Company {
 			json.put("ownerid", ownerid);
 		if (companyName != null)
 			json.put("companyName", companyName);
+		if (mListDepartMents.size() > 0) {
+			JSONArray jsonArray = new JSONArray();
+			for (DepartMent departMent : mListDepartMents) {
+				JSONObject jsonDepart = departMent.toJSONObject();
+				jsonArray.put(jsonDepart);
+			}
+			json.put("department", jsonArray);
+		}
 		return json;
+	}
+
+	List<DepartMent> mListDepartMents = new ArrayList<DepartMent>();
+
+	public void addDepartMent(DepartMent departMent) {
+		if (!mListDepartMents.contains(departMent))
+			mListDepartMents.add(departMent);
 	}
 }

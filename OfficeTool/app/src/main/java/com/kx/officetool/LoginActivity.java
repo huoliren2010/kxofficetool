@@ -49,6 +49,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         mUserInfo = SharedPreferencesUtil.getObject(LoginActivity.this, UserInfo.KEY_USERINFO_OBJ, UserInfo.class);
         if (mUserInfo != null) {
+            mAppConfig.mUserInfo = mUserInfo;
             startActivity(new Intent(this, MainActivity.class));
             finish();
             return;

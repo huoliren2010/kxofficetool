@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import com.db.DBManager;
 
 import info.Approval;
+import info.CommonInfo;
 import info.Company;
 import info.DailySign;
 import info.DepartMent;
@@ -17,7 +18,7 @@ import info.Notice;
 import info.UserInfo;
 
 public class Service {
-
+	
 	public UserInfo login(String username, String password) {
 
 		// 获取Sql查询语句
@@ -123,6 +124,9 @@ public class Service {
 					int cuid = rs.getInt(uidColoumn);
 					Company company = new Company(cid, cname, cuid);
 					dbmanager.closeDB();
+					//create default department
+					DepartMent departMent = createDepartMent(CommonInfo.NOMRAL_DEPARTMENT, cid, cuid);
+					company.addDepartMent(departMent);
 					return company;
 				}
 			}
@@ -133,7 +137,7 @@ public class Service {
 		return null;
 	}
 
-	public String createDepartMent(String departName, int companyid, int uid) {
+	public DepartMent createDepartMent(String departName, int companyid, int uid) {
 		String strSql = "insert into department(partname, companyid, leaderid) values('" + departName + "'," + companyid
 				+ ", " + uid + ")";
 		// 获取DB对象
@@ -157,7 +161,7 @@ public class Service {
 					int duid = rs.getInt(uidColoumn);
 					DepartMent departMent = new DepartMent(did, dname, cid, duid);
 					dbmanager.closeDB();
-					return departMent.toString();
+					return departMent;
 				}
 			}
 		} catch (SQLException e) {

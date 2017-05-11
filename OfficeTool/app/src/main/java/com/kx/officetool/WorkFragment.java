@@ -62,7 +62,7 @@ public class WorkFragment extends android.support.v4.app.Fragment implements Vie
         viewRoot.findViewById(R.id.tv_post_hols).setOnClickListener(this);
         viewRoot.findViewById(R.id.tv_order_meetingroom).setOnClickListener(this);
         viewRoot.findViewById(R.id.tv_post_board).setOnClickListener(this);
-        if (mUsrInfo != null && mUsrInfo.isJoinedInCompany()) {
+        if (mUsrInfo != null && mCompanyInfo != null) {
             fillCompanyInfo(mCompanyInfo);
         } else {
             ViewStub viewStubNotjoinCompany = (ViewStub) viewRoot.findViewById(R.id.viewstub_notjoin_anycompany);
@@ -77,6 +77,7 @@ public class WorkFragment extends android.support.v4.app.Fragment implements Vie
     }
 
     private void fillCompanyInfo(CompanyInfo companyInfo) {
+        if(companyInfo == null)return;
         if (mViewRoot_NotJoinCompany != null) mViewRoot_NotJoinCompany.setVisibility(View.GONE);
         mViewRoot_JoinedCompany.setVisibility(View.VISIBLE);
 //        Glide.with(this).load(companyInfo.getCompanAvatarUrl()).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.mipmap.ic_personal_default).error(R.mipmap.ic_personal_default).into(mIvCompanyAvatar);

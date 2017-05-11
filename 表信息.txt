@@ -7,6 +7,10 @@ message(id, uid, fid, msg);
 approval(id, uid, message, starttime, endtime,type, leaderid);
 dailysign(id, uid, address, time, departid);
 
+CREATE DATABASE `officetool`  
+CHARACTER SET 'utf8'  
+COLLATE 'utf8_general_ci';
+
 drop table notice;
 drop table message;
 drop table dailysign;
@@ -18,17 +22,17 @@ drop table user;
 
 create table user (id int not null auto_increment, username char(20), password char(20), phonenumber char(11), avatar char(128), gender char(1), departmentid int, signmessage char(128), primary key(id))engine=innodb default charset=utf8;
 
-create table company(id int not null auto_increment, name char(52), ownerid int, avatar char(128),
+create table company(id int not null auto_increment, name varchar(52), ownerid int, avatar char(128),
 constraint FK_CompanyShip foreign key (ownerid) references user(id) on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8;
 
-create table department(id int not null auto_increment, partname char(52), companyid int, leaderid int, constraint FK_CompanyDepartShip foreign key (companyid) references company(id) on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8 auto_increment=1;
+create table department(id int not null auto_increment, partname varchar(52), companyid int, leaderid int, constraint FK_CompanyDepartShip foreign key (companyid) references company(id) on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8 auto_increment=1;
 
-create table companyRoom(id int not null auto_increment, roomname char(20), companyid int, constraint FK_CompanyRoomShip foreign key (companyid) references company(id) on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8 auto_increment=1;
+create table companyRoom(id int not null auto_increment, roomname varchar(20), companyid int, constraint FK_CompanyRoomShip foreign key (companyid) references company(id) on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8 auto_increment=1;
 
-create table notice(id int not null auto_increment, departid int, message char(255), constraint FK_NoticeDepartShip foreign key (departid) references department(id) on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8 auto_increment=1;
+create table notice(id int not null auto_increment, departid int, message varchar(255), constraint FK_NoticeDepartShip foreign key (departid) references department(id) on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8 auto_increment=1;
 
-create table message(id int not null auto_increment, uid int, fid int, msg char(255), primary key(id))engine=innodb default charset=utf8 auto_increment=1;
+create table message(id int not null auto_increment, uid int, fid int, msg varchar(255), primary key(id))engine=innodb default charset=utf8 auto_increment=1;
 
-create table approval(id int not null auto_increment, uid int, message char(255), starttime char(20), endtime char(20), type char(10), leaderid int, constraint FK_ApprovalShip foreign key (uid) references user(id) on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8 auto_increment=1;
+create table approval(id int not null auto_increment, uid int, message varchar(255), starttime char(20), endtime char(20), type char(10), leaderid int, constraint FK_ApprovalShip foreign key (uid) references user(id) on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8 auto_increment=1;
 
-create table dailysign(id int not null auto_increment, uid int, address char(128), time char(52), departid int, constraint FK_DailaySignShip foreign key (uid) references user(id)on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8 auto_increment=1;
+create table dailysign(id int not null auto_increment, uid int, address varchar(128), time char(52), departid int, constraint FK_DailaySignShip foreign key (uid) references user(id)on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8 auto_increment=1;

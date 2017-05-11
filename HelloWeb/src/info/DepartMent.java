@@ -58,4 +58,14 @@ public class DepartMent {
 		this.leaderid = leaderid;
 	}
 
+	public JSONObject toJSONObject() {
+		JSONObject json = new JSONObject();
+		json.put("id", id);
+		if (partname != null)
+			json.put("partname", partname);
+		json.put("leaderid", leaderid);
+		json.put("companyId", companyId);
+		return json;
+	}
+
 }

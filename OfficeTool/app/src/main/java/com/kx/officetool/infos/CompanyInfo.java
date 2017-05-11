@@ -21,6 +21,9 @@ public class CompanyInfo implements Serializable{
      * 公司创始人id
      */
     int ownerid;
+
+    List<DepartMent> department;
+
     /**
      * 公司头像地址
      */
