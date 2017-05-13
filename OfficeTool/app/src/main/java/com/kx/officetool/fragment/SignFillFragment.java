@@ -1,4 +1,4 @@
-package com.kx.officetool;
+package com.kx.officetool.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,6 +16,9 @@ import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.Poi;
+import com.kx.officetool.DailySignActivity;
+import com.kx.officetool.MainApplication;
+import com.kx.officetool.R;
 import com.kx.officetool.baiduservice.LocationService;
 import com.kx.officetool.infos.DailySignInfo;
 

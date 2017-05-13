@@ -25,6 +25,8 @@ import com.kx.officetool.utils.ToastUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URLEncoder;
+
 /**
  * A login screen that offers login via phone/password.
  */

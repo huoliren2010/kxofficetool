@@ -1,4 +1,4 @@
-package com.kx.officetool;
+package com.kx.officetool.fragment;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -14,8 +14,11 @@ import android.widget.PopupWindow;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.kx.officetool.LoginActivity;
+import com.kx.officetool.R;
 import com.kx.officetool.infos.LoadUserAvatar;
 import com.kx.officetool.infos.UserInfo;
+import com.kx.officetool.service.WebService;
 import com.kx.officetool.utils.BitmapUtil;
 import com.kx.officetool.utils.IntentUtil;
 import com.kx.officetool.utils.SharedPreferencesUtil;
@@ -28,6 +31,7 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
     ImageView mIvAvatar;
     TextView mTvNickName;
     TextView mTvGender;
+    TextView mTvPhoneNumber;
 
     @Nullable
     @Override
@@ -48,6 +52,8 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
         mTvNickName.setText(mUserInfo.getUserName());
         mTvGender = (TextView) viewRoot.findViewById(R.id.tv_gender);
         mTvGender.setText(mUserInfo.getGender());
+        mTvPhoneNumber = (TextView)viewRoot.findViewById(R.id.tv_phonenumber);
+        mTvPhoneNumber.setText(mUserInfo.getPhoneNumber());
         LoadUserAvatar.getInstance(getActivity()).loadAvatar(mIvAvatar, mUserInfo.getUserAvatar());
     }
 
@@ -73,6 +79,17 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
                         popupWindow.dismiss();
                         mTvGender.setText(mUserInfo.getGender());
                         SharedPreferencesUtil.putObject(getActivity(), UserInfo.KEY_USERINFO_OBJ, mUserInfo);
+                    }
+                });
+                popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                    @Override
+                    public void onDismiss() {
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                WebService.getInstance().updateUserInfo(mUserInfo);
+                            }
+                        }).start();
                     }
                 });
                 popupWindow.showAsDropDown(mTvGender);

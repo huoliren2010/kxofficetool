@@ -1,16 +1,38 @@
 package com.kx.officetool.infos;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
-import java.util.List;
 
 public class DepartMent implements Serializable{
-    private static final long serialVersionUID = -7972330034026683789L;
+    private static final long serialVersionUID = -6076822358611459148L;
     int id;
     String partname;
     int leaderid;// as uid througth table user id
     int companyId;
 
-    List<UserInfo> users;
+    public DepartMent(int did, String dname, int cid, int duid) {
+        this.id = did;
+        this.partname = dname;
+        this.leaderid = duid;
+        this.companyId = cid;
+    }
+
+    @Override
+    public String toString() {
+        JSONObject json = new JSONObject();
+        try {
+            json.put("id", id);
+            if (partname != null)
+                json.put("partname", partname);
+            json.put("leaderid", leaderid);
+            json.put("companyId", companyId);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return json.toString();
+    }
 
     public int getId() {
         return id;
@@ -28,6 +50,14 @@ public class DepartMent implements Serializable{
         this.partname = partname;
     }
 
+    public int getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(int companyId) {
+        this.companyId = companyId;
+    }
+
     public int getLeaderid() {
         return leaderid;
     }
@@ -36,11 +66,18 @@ public class DepartMent implements Serializable{
         this.leaderid = leaderid;
     }
 
-    public int getCompanyId() {
-        return companyId;
+    public JSONObject toJSONObject() {
+        JSONObject json = new JSONObject();
+        try {
+            json.put("id", id);
+            if (partname != null)
+                json.put("partname", partname);
+            json.put("leaderid", leaderid);
+            json.put("companyId", companyId);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return json;
     }
 
-    public void setCompanyId(int companyId) {
-        this.companyId = companyId;
-    }
 }

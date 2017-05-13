@@ -34,6 +34,11 @@ public class CompanyInfo implements Serializable{
      */
     List<UserInfo> companyMembers;
     /**
+     *公司管理员
+     */
+    List<UserInfo> companyManagers;
+
+    /**
      * 公司会议室
      */
     List<MeetingRoom> companyMeetingRooms;
@@ -79,16 +84,7 @@ public class CompanyInfo implements Serializable{
     }
 
     public List<UserInfo> getManager(){
-        List<UserInfo> listManager = null;
-        if(companyMembers != null && companyMembers.size() >0){
-            listManager = new ArrayList<>();
-            for(UserInfo userInfo :companyMembers){
-                if(userInfo.isManager()){
-                    listManager.add(userInfo);
-                }
-            }
-        }
-        return listManager;
+       return companyManagers;
     }
 
     public int getId() {
@@ -105,5 +101,17 @@ public class CompanyInfo implements Serializable{
 
     public void setOwnerid(int ownerid) {
         this.ownerid = ownerid;
+    }
+
+    public List<DepartMent> getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(List<DepartMent> department) {
+        this.department = department;
+    }
+
+    public void setManager(List<UserInfo> manager) {
+        this.companyManagers = manager;
     }
 }

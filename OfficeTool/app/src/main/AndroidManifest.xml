@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kx.officetool">
 
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -48,7 +49,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".JoinCompanyActivity" />
-        <activity android:name=".CreateCompanyActivity" />
+        <activity android:name=".fragment.CreateCompanyActivity" />
         <activity android:name=".CompanyDetailsActivity" />
 
         <service
@@ -65,7 +66,8 @@
             android:value="bMyTW7q5qviDdCamG5YZCfnhaL5jOkiS" /> <!-- http://lbsyun.baidu.com/apiconsole/key -->
 
         <activity android:name=".DailySignActivity" />
-        <activity android:name=".BDLocationActivity"></activity>
+        <activity android:name=".BDLocationActivity" />
+        <activity android:name=".ChooseUserActivity"></activity>
     </application>
 
 </manifest>

@@ -98,5 +98,5 @@ public class Approval {
 	public void setLeaderid(int leaderid) {
 		this.leaderid = leaderid;
 	}
-	
+
 }

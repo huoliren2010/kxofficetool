@@ -2,6 +2,8 @@ package com.service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONObject;
 
@@ -9,20 +11,23 @@ import com.db.DBManager;
 
 import info.Approval;
 import info.CommonInfo;
-import info.Company;
+import info.CompanyInfo;
 import info.DailySign;
 import info.DepartMent;
+import info.Manager;
 import info.MeetingRoom;
 import info.Message;
 import info.Notice;
 import info.UserInfo;
 
 public class Service {
-	
+
 	public UserInfo login(String username, String password) {
 
 		// 获取Sql查询语句
-		String logSql = "select * from user where username ='" + username + "' and password ='" + password + "'";
+		String formatSql = "select * from user where username='%s' and password='%s'";
+		String logSql = String.format(formatSql, username, password);
+		System.out.println("login sqlstr="+logSql);
 
 		// 获取DB对象
 		DBManager dbmanager = DBManager.createInstance();
@@ -68,8 +73,8 @@ public class Service {
 	public UserInfo register(String username, String password, String phonenumber) {
 
 		// 获取Sql查询语句
-		String regSql = "insert into user (username,password, phonenumber) values('" + username + "','" + password
-				+ "','" + phonenumber + "') ";
+		String format = "insert into user (username,password, phonenumber) values('%s', '%s','%S')";
+		String regSql = String.format(format, username, password, phonenumber);
 
 		// 获取DB对象
 		DBManager dbmanager = DBManager.createInstance();
@@ -104,8 +109,43 @@ public class Service {
 		return null;
 	}
 
-	public Company createCompany(String companyName, int uid) {
-		String strSql = "insert into company(name, ownerid) values('" + companyName + "'," + uid + ")";
+	public UserInfo updateUser(UserInfo userInfo) {
+		String format = "update user set username='%s', avatar='%s', gender='%s', departmentid=%d, signmessage='%s' where id=%d";
+		String sql = String.format(format, userInfo.getUsername(), userInfo.getAvatar(), userInfo.getGender(), userInfo.getDepartmentid(), userInfo.getSignmessage(), userInfo.getId());
+		// 获取DB对象
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		int ret = dbmanager.executeUpdate(sql);
+		try {
+			if (ret != 0) {
+				String querySql = "select * from user where id=" + userInfo.getId();
+				// 获取DB对象
+				ResultSet rs = dbmanager.executeQuery(querySql);
+				if (rs.next()) {
+					int uidColoumn = rs.findColumn("id");
+					int uid = rs.getInt(uidColoumn);
+					int unameColoumn = rs.findColumn("username");
+					String uname = rs.getString(unameColoumn);
+					int upswColoumn = rs.findColumn("password");
+					String upsw = rs.getString(upswColoumn);
+					int uphoneColoumn = rs.findColumn("phonenumber");
+					String uphone = rs.getString(uphoneColoumn);
+					UserInfo userInfor = new UserInfo(uid, uname, upsw, uphone);
+					dbmanager.closeDB();
+					return userInfor;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		dbmanager.closeDB();
+
+		return null;
+	}
+
+	public CompanyInfo createCompany(String companyName, int uid) {
+		String format = "insert into company(name, ownerid) values('%s', %d)";
+		String strSql = String.format(format, companyName, uid);
 		// 获取DB对象
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
@@ -122,11 +162,15 @@ public class Service {
 					String cname = rs.getString(cnameColoumn);
 					int uidColoumn = rs.findColumn("ownerid");
 					int cuid = rs.getInt(uidColoumn);
-					Company company = new Company(cid, cname, cuid);
+					CompanyInfo company = new CompanyInfo(cid, cname, cuid);
 					dbmanager.closeDB();
-					//create default department
+					// create default department
 					DepartMent departMent = createDepartMent(CommonInfo.NOMRAL_DEPARTMENT, cid, cuid);
-					company.addDepartMent(departMent);
+					if (departMent != null) {
+						List<DepartMent> list = new ArrayList<DepartMent>();
+						list.add(departMent);
+						company.setDepartment(list);
+					}
 					return company;
 				}
 			}
@@ -138,8 +182,8 @@ public class Service {
 	}
 
 	public DepartMent createDepartMent(String departName, int companyid, int uid) {
-		String strSql = "insert into department(partname, companyid, leaderid) values('" + departName + "'," + companyid
-				+ ", " + uid + ")";
+		String format = "insert into department(partname, companyid, leaderid) values('%s', %d, %d)";
+		String strSql = String.format(format, departName, companyid, uid);
 		// 获取DB对象
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
@@ -170,28 +214,44 @@ public class Service {
 		dbmanager.closeDB();
 		return null;
 	}
-
-	public String createRoom(String roomName, int companyid) {
-		String strSql = "insert into companyRoom(roomname, companyid) values('" + roomName + "'," + companyid + ")";
-		// 获取DB对象
+	
+	public UserInfo createManager(int uid, int companyid) {
+		String format = "insert into manager(uid, companyid) values(%d, %d)";
+		String sql = String.format(format, uid, companyid);
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
 
-		int ret = dbmanager.executeUpdate(strSql);
 		try {
+		int ret = dbmanager.executeUpdate(sql);
 			if (ret != 0) {
-				strSql = "select * from companyRoom where roomname='" + roomName + "' and companyid=" + companyid;
-				ResultSet rs = dbmanager.executeQuery(strSql);
+				String formatSql = "select * from user where id=%d";
+				String logSql = String.format(formatSql, uid);
+
+				ResultSet rs = dbmanager.executeQuery(logSql);
 				if (rs.next()) {
-					int didColoumn = rs.findColumn("id");
-					int did = rs.getInt(didColoumn);
-					int rnameColoumn = rs.findColumn("roomname");
-					String rname = rs.getString(rnameColoumn);
-					int cidColoumn = rs.findColumn("companyid");
-					int cid = rs.getInt(cidColoumn);
-					MeetingRoom meetingRoom = new MeetingRoom(did, rname, cid);
+					int unameColoumn = rs.findColumn("username");
+					String uname = rs.getString(unameColoumn);
+					int upswColoumn = rs.findColumn("password");
+					String upsw = rs.getString(upswColoumn);
+					int uphoneColoumn = rs.findColumn("phonenumber");
+					String uphone = rs.getString(uphoneColoumn);
+					int uavatarColoumn = rs.findColumn("avatar");
+					String uavatar = rs.getString(uavatarColoumn);
+					int ugenderColoumn = rs.findColumn("gender");
+					String ugender = rs.getString(ugenderColoumn);
+					int udepartmentidColoumn = rs.findColumn("departmentid");
+					int udepartmentid = rs.getInt(udepartmentidColoumn);
+					if (udepartmentid == 0)
+						udepartmentid = -1;
+					int usignmessageColoumn = rs.findColumn("signmessage");
+					String usignmessage = rs.getString(usignmessageColoumn);
+					UserInfo userInfo = new UserInfo(uid, uname, upsw, uphone);
+					userInfo.setAvatar(uavatar);
+					userInfo.setGender(ugender);
+					userInfo.setDepartmentid(udepartmentid);
+					userInfo.setSignmessage(usignmessage);
 					dbmanager.closeDB();
-					return meetingRoom.toString();
+					return userInfo;
 				}
 			}
 		} catch (SQLException e) {
@@ -199,129 +259,264 @@ public class Service {
 		}
 		dbmanager.closeDB();
 		return null;
+
 	}
 
-	public String createNotice(int departid, String message) {
-		String strSql = "insert into notice(message, departid) values('" + message + "'," + departid + ")";
-		// 获取DB对象
+	public List<UserInfo> queryAllUserFromDepartmentid(int departmentid) {
+		String format = "select id from department where companyid=some(select companyid from department where id=%d)";
+		String sql = String.format(format, departmentid);
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
-
-		int ret = dbmanager.executeUpdate(strSql);
+		List<UserInfo> mListUserInfos = null;
 		try {
-			if (ret != 0) {
-				strSql = "select * from notice where message='" + message + "' and departid=" + departid;
-				ResultSet rs = dbmanager.executeQuery(strSql);
-				if (rs.next()) {
-					int didColoumn = rs.findColumn("id");
-					int did = rs.getInt(didColoumn);
-					int rnameColoumn = rs.findColumn("message");
-					String rname = rs.getString(rnameColoumn);
-					int cidColoumn = rs.findColumn("departid");
-					int cid = rs.getInt(cidColoumn);
-					Notice meetingRoom = new Notice(did, rname, cid);
-					dbmanager.closeDB();
-					return meetingRoom.toString();
+			ResultSet rs = dbmanager.executeQuery(sql);
+			format = "select * from user where departmentid=%d";
+			List<Integer> listDepartmentIds = new ArrayList<Integer>();
+			while(rs.next()){
+				int departmentId = rs.getInt(1);
+				listDepartmentIds.add(departmentId);
+			}
+			mListUserInfos = new ArrayList<UserInfo>();
+			for(Integer departmentId : listDepartmentIds){
+				sql = String.format(format, departmentId);
+				ResultSet executeQuery = dbmanager.executeQuery(sql);
+				while(executeQuery.next()){
+					int idColoumn = executeQuery.findColumn("id");
+					int uid = executeQuery.getInt(idColoumn);
+					int unameColoumn = executeQuery.findColumn("username");
+					String uname = executeQuery.getString(unameColoumn);
+					int upswColoumn = executeQuery.findColumn("password");
+					String upsw = executeQuery.getString(upswColoumn);
+					int uphoneColoumn = executeQuery.findColumn("phonenumber");
+					String uphone = executeQuery.getString(uphoneColoumn);
+					int uavatarColoumn = executeQuery.findColumn("avatar");
+					String uavatar = executeQuery.getString(uavatarColoumn);
+					int ugenderColoumn = executeQuery.findColumn("gender");
+					String ugender = executeQuery.getString(ugenderColoumn);
+					int udepartmentidColoumn = executeQuery.findColumn("departmentid");
+					int udepartmentid = executeQuery.getInt(udepartmentidColoumn);
+					if (udepartmentid == 0)
+						udepartmentid = -1;
+					int usignmessageColoumn = executeQuery.findColumn("signmessage");
+					String usignmessage = executeQuery.getString(usignmessageColoumn);
+					UserInfo userInfo = new UserInfo(uid, uname, upsw, uphone);
+					userInfo.setAvatar(uavatar);
+					userInfo.setGender(ugender);
+					userInfo.setDepartmentid(udepartmentid);
+					userInfo.setSignmessage(usignmessage);
+					mListUserInfos.add(userInfo);
 				}
 			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		dbmanager.closeDB();
-		return null;
+		dbmanager.connectDB();
+		return mListUserInfos;
 	}
 
-	public String createMessage(int uid, int fid, String msg) {
-		String strSql = "insert into message(uid, fid, msg) values(" + uid + "," + fid + ",'" + msg + "')";
-		// 获取DB对象
+	public List<UserInfo> queryAllUserFromCompanyid(int companyid) {
+		String format = "select id from department where companyid=%d";
+		String sql = String.format(format, companyid);
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
-
-		int ret = dbmanager.executeUpdate(strSql);
+		List<UserInfo> mListUserInfos = null;
 		try {
-			if (ret != 0) {
-				strSql = "select * from message where uid=" + uid + "and fid=" + fid + "and msg=" + "'" + msg + "'";
-				ResultSet rs = dbmanager.executeQuery(strSql);
-				if (rs.next()) {
-					int didColoumn = rs.findColumn("id");
-					int id = rs.getInt(didColoumn);
-					Message message = new Message(id, uid, fid, msg);
-					dbmanager.closeDB();
-					return message.toString();
+			ResultSet rs = dbmanager.executeQuery(sql);
+			format = "select * from user where departmentid=%d";
+			List<Integer> listDepartmentIds = new ArrayList<Integer>();
+			while(rs.next()){
+				int departmentId = rs.getInt(1);
+				listDepartmentIds.add(departmentId);
+			}
+			mListUserInfos = new ArrayList<UserInfo>();
+			for(Integer departmentId : listDepartmentIds){
+				sql = String.format(format, departmentId);
+				ResultSet executeQuery = dbmanager.executeQuery(sql);
+				while(executeQuery.next()){
+					int idColoumn = executeQuery.findColumn("id");
+					int uid = executeQuery.getInt(idColoumn);
+					int unameColoumn = executeQuery.findColumn("username");
+					String uname = executeQuery.getString(unameColoumn);
+					int upswColoumn = executeQuery.findColumn("password");
+					String upsw = executeQuery.getString(upswColoumn);
+					int uphoneColoumn = executeQuery.findColumn("phonenumber");
+					String uphone = executeQuery.getString(uphoneColoumn);
+					int uavatarColoumn = executeQuery.findColumn("avatar");
+					String uavatar = executeQuery.getString(uavatarColoumn);
+					int ugenderColoumn = executeQuery.findColumn("gender");
+					String ugender = executeQuery.getString(ugenderColoumn);
+					int udepartmentidColoumn = executeQuery.findColumn("departmentid");
+					int udepartmentid = executeQuery.getInt(udepartmentidColoumn);
+					if (udepartmentid == 0)
+						udepartmentid = -1;
+					int usignmessageColoumn = executeQuery.findColumn("signmessage");
+					String usignmessage = executeQuery.getString(usignmessageColoumn);
+					UserInfo userInfo = new UserInfo(uid, uname, upsw, uphone);
+					userInfo.setAvatar(uavatar);
+					userInfo.setGender(ugender);
+					userInfo.setDepartmentid(udepartmentid);
+					userInfo.setSignmessage(usignmessage);
+					mListUserInfos.add(userInfo);
 				}
 			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		dbmanager.closeDB();
-		return null;
+		dbmanager.connectDB();
+		return mListUserInfos;
 	}
-
-	public String createApproval(int uid, String message, String starttime, String endtime, String type, int leaderid) {
-		String strSql = "insert into approval(uid, message, starttime, endtime, type, leaderid) values(" + uid + ",'"
-				+ message + "','" + starttime + "','" + endtime + "','" + type + "," + leaderid + ")";
-		// 获取DB对象
+	
+	public List<UserInfo> queryManagersFromCompanyid(int companyid) {
+		String format = "select * from user where id=some(select uid from manager where companyid=%d)";
+		String sql = String.format(format, companyid);
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
-
-		int ret = dbmanager.executeUpdate(strSql);
+		List<UserInfo> mListUserInfos = null;
 		try {
-			if (ret != 0) {
-				strSql = "select * from approval where uid=" + uid + "and starttime='" + starttime + "' and type=" + "'"
-						+ type + "' and leaderid=" + leaderid;
-				ResultSet rs = dbmanager.executeQuery(strSql);
-				if (rs.next()) {
-					int didColoumn = rs.findColumn("id");
-					int id = rs.getInt(didColoumn);
-					Approval approval = new Approval(id, uid, message, starttime, endtime, type, leaderid);
-					dbmanager.closeDB();
-					return approval.toString();
-				}
+			mListUserInfos = new ArrayList<UserInfo>();
+			ResultSet executeQuery = dbmanager.executeQuery(sql);
+			while (executeQuery.next()) {
+				int idColoumn = executeQuery.findColumn("id");
+				int uid = executeQuery.getInt(idColoumn);
+				int unameColoumn = executeQuery.findColumn("username");
+				String uname = executeQuery.getString(unameColoumn);
+				int upswColoumn = executeQuery.findColumn("password");
+				String upsw = executeQuery.getString(upswColoumn);
+				int uphoneColoumn = executeQuery.findColumn("phonenumber");
+				String uphone = executeQuery.getString(uphoneColoumn);
+				int uavatarColoumn = executeQuery.findColumn("avatar");
+				String uavatar = executeQuery.getString(uavatarColoumn);
+				int ugenderColoumn = executeQuery.findColumn("gender");
+				String ugender = executeQuery.getString(ugenderColoumn);
+				int udepartmentidColoumn = executeQuery.findColumn("departmentid");
+				int udepartmentid = executeQuery.getInt(udepartmentidColoumn);
+				if (udepartmentid == 0)
+					udepartmentid = -1;
+				int usignmessageColoumn = executeQuery.findColumn("signmessage");
+				String usignmessage = executeQuery.getString(usignmessageColoumn);
+				UserInfo userInfo = new UserInfo(uid, uname, upsw, uphone);
+				userInfo.setAvatar(uavatar);
+				userInfo.setGender(ugender);
+				userInfo.setDepartmentid(udepartmentid);
+				userInfo.setSignmessage(usignmessage);
+				mListUserInfos.add(userInfo);
 			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		dbmanager.closeDB();
-		return null;
+		dbmanager.connectDB();
+		return mListUserInfos;
 	}
-
-	public String createDailySign(int uid, String address, String time, int departid) {
-		String strSql = "insert into dailysign(uid, address, time, departid) values(" + uid + ",'" + address + "','"
-				+ time + "'," + departid + ")";
-		// 获取DB对象
+	
+	public CompanyInfo queryCompanyInfoFromCompanyid(int compnayid) {
+		String format = "select * from company where id=%d";
+		String sql = String.format(format, compnayid);
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
-
-		int ret = dbmanager.executeUpdate(strSql);
+		ResultSet rs = dbmanager.executeQuery(sql);
 		try {
-			if (ret != 0) {
-				strSql = "select * from dailysign where uid=" + uid + "and address='" + address + "' and time=" + "'"
-						+ time + " and departid=" + departid;
-				ResultSet rs = dbmanager.executeQuery(strSql);
-				if (rs.next()) {
-					int didColoumn = rs.findColumn("id");
-					int id = rs.getInt(didColoumn);
-					DailySign dailySign = new DailySign(id, uid, address, time, departid);
-					dbmanager.closeDB();
-					return dailySign.toString();
-				}
+			if (rs.next()) {
+				int cidColoumn = rs.findColumn("id");
+				int cid = rs.getInt(cidColoumn);
+				int cnameColoumn = rs.findColumn("name");
+				String cname = rs.getString(cnameColoumn);
+				int uidColoumn = rs.findColumn("ownerid");
+				int cuid = rs.getInt(uidColoumn);
+				dbmanager.closeDB();
+				CompanyInfo companyInfo = new CompanyInfo(cid, cname, cuid);
+				companyInfo.setCompanyMembers(queryAllUserFromCompanyid(cid));
+				companyInfo.setCompanyManagers(queryManagersFromCompanyid(cid));
+				companyInfo.setCompanyMeetingRooms(queryMeetingRoomFormCompanyid(cid));
+				return companyInfo;
 			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		dbmanager.closeDB();
+		return null;
+	}
+	
+	public CompanyInfo queryCompanyInfoFromDepartmentid(int departmentid) {
+		String format = "select * from company where id=some(select companyid from department where departmentid=%d)";
+		String sql = String.format(format, departmentid);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		ResultSet rs = dbmanager.executeQuery(sql);
+		try {
+			if (rs.next()) {
+				int cidColoumn = rs.findColumn("id");
+				int cid = rs.getInt(cidColoumn);
+				int cnameColoumn = rs.findColumn("name");
+				String cname = rs.getString(cnameColoumn);
+				int uidColoumn = rs.findColumn("ownerid");
+				int cuid = rs.getInt(uidColoumn);
+				dbmanager.closeDB();
+				CompanyInfo companyInfo = new CompanyInfo(cid, cname, cuid);
+				companyInfo.setCompanyMembers(queryAllUserFromCompanyid(cid));
+				companyInfo.setCompanyManagers(queryManagersFromCompanyid(cid));
+				companyInfo.setCompanyMeetingRooms(queryMeetingRoomFormCompanyid(cid));
+				return companyInfo;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
-	public boolean updateUserAvatar(int uid, String fileavatar) {
-		String updateSql = "update user set avatar='" + fileavatar + "' where id=" + uid;
-		DBManager sql = DBManager.createInstance();
-		sql.connectDB();
-		int ret = sql.executeUpdate(updateSql);
-		sql.closeDB();
-		if (ret != 0) {
-			return true;
+	public List<MeetingRoom> queryMeetingRoomFormCompanyid(int cid) {
+		String format = "select * from companyRoom where companyid=%d";
+		String sql = String.format(format, cid);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		ResultSet rs = dbmanager.executeQuery(sql);
+		List<MeetingRoom> list = null;
+		try {
+			while (rs.next()) {
+				if (list == null)
+					list = new ArrayList<MeetingRoom>();
+				int idColoumn = rs.findColumn("id");
+				int id = rs.getInt(idColoumn);
+				int rnameColoumn = rs.findColumn("roomname");
+				String rname = rs.getString(rnameColoumn);
+				MeetingRoom met = new MeetingRoom(id, rname, cid);
+				list.add(met);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return false;
+		dbmanager.closeDB();
+		return list;
 	}
+	
+	public MeetingRoom createMeetingRoom(String roomname, int companyid) {
+		String format = "insert into companyRoom(roomname, companyid) values('%s', %d)";
+		String sql = String.format(format, roomname, companyid);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		int exrt = dbmanager.executeUpdate(sql);
+		MeetingRoom mt = null;
+		if (exrt != 0) {
+			format = "select id from companyRoom where roomname='%s' and companyid=%d";
+			sql = String.format(format, roomname, companyid);
+			ResultSet rt = dbmanager.executeQuery(sql);
+			try {
+				if (rt.next()) {
+					int id = rt.getInt(1);
+					mt = new MeetingRoom(id, roomname, companyid);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		dbmanager.closeDB();
+		return mt;
+	}
+	
+	
 }

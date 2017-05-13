@@ -1,16 +1,27 @@
 package com.kx.officetool.service;
 
+import android.text.TextUtils;
+import android.util.Log;
+
 import com.kx.officetool.infos.CompanyInfo;
+import com.kx.officetool.infos.DepartMent;
+import com.kx.officetool.infos.Manager;
 import com.kx.officetool.infos.UserInfo;
+import com.kx.officetool.service.response.BoooleanResponse;
 import com.kx.officetool.service.response.CompanyResponse;
+import com.kx.officetool.service.response.DepartMentResponse;
 import com.kx.officetool.service.response.LogResponse;
+import com.kx.officetool.service.response.ManagerResponse;
 import com.kx.officetool.service.response.RegResponse;
+import com.kx.officetool.service.response.UserInfoResponse;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -79,6 +90,29 @@ public class WebService {
         }
         return null;
     }
+
+    public void updateUserInfo(UserInfo userInfo) {
+        Map<String, String> mapParams = new HashMap<>();
+        mapParams.put("id", String.valueOf(userInfo.getId()));
+        mapParams.put("gender", userInfo.getOrgGender());
+        if (!TextUtils.isEmpty(userInfo.getAvatar()))
+            mapParams.put("avatar", userInfo.getAvatar());
+        if (!TextUtils.isEmpty(userInfo.getSignmessage()))
+            mapParams.put("signmessage", userInfo.getSignmessage());
+        mapParams.put("departmentid", String.valueOf(userInfo.getDepartmentid()));
+        if (!TextUtils.isEmpty(userInfo.getUsername()))
+            mapParams.put("uname", userInfo.getUsername());
+        Call<RegResponse> boooleanResponseCall = mIWebService.updateUserInfo(mapParams);
+        try {
+            Response<RegResponse> execute = boooleanResponseCall.execute();
+            boolean data = execute.body().getData() != null;
+            Log.e("xx", "updateUserInfo data = " + data);
+        } catch (IOException e) {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public CompanyInfo createCompany(String companyName, int uid) {
         Call<CompanyResponse> create = mIWebService.createCompany(companyName, uid);
         try {
@@ -90,4 +124,28 @@ public class WebService {
         }
         return null;
     }
+
+    public DepartMent createDepartMent(String departName, int compayid, int uid){
+        Call<DepartMentResponse> departMent = mIWebService.createDepartMent(departName, compayid, uid);
+        try {
+            Response<DepartMentResponse> execute = departMent.execute();
+            return execute.body().getData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public UserInfo createManager(int uid, int companayid){
+        Call<UserInfoResponse> manager = mIWebService.createManager(uid, companayid);
+        try {
+            Response<UserInfoResponse> execute = manager.execute();
+            return execute.body().getData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
 }

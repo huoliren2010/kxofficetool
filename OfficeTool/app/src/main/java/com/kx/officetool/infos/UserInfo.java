@@ -1,12 +1,15 @@
 package com.kx.officetool.infos;
 
 import com.kx.officetool.R;
+
 import java.io.Serializable;
 
 public class UserInfo implements Serializable {
     private static final long serialVersionUID = -750243008729743460L;
     public static String KEY_USERINFO_OBJ = "key_userinfo_object";
     public static String KEY_USERINFO_AVATAR = "key_userinfo_avatar";
+    public static String STR_BOY = "m";
+    public static String STR_GIRL = "f";
 
     public enum Level {NORMAL, MIDDLE, ADVANCED, BOSS}
 
@@ -59,15 +62,22 @@ public class UserInfo implements Serializable {
         return this;
     }
 
+    public String getOrgGender(){
+        return gender;
+    }
+
     public int getGender() {
-        return true ? R.string.string_sex_boy : R.string.string_sex_girl;
+        return gender.equalsIgnoreCase(STR_BOY) ? R.string.string_sex_boy : R.string.string_sex_girl;
     }
 
     public GENDER getUserGender() {
-        return GENDER.BOY;
+        return gender.equalsIgnoreCase(STR_BOY) ? GENDER.BOY : GENDER.GIRL;
     }
 
     public UserInfo setUserGender(GENDER userGender) {
+        if(userGender == GENDER.BOY){
+            gender = STR_BOY;
+        }else gender = STR_GIRL;
         return this;
     }
 

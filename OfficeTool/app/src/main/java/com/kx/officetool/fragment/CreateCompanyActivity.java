@@ -1,4 +1,4 @@
-package com.kx.officetool;
+package com.kx.officetool.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.kx.officetool.BaseActivity;
+import com.kx.officetool.R;
 import com.kx.officetool.infos.Actions;
 import com.kx.officetool.infos.CompanyInfo;
 import com.kx.officetool.infos.UserInfo;
@@ -136,6 +138,7 @@ public class CreateCompanyActivity extends BaseActivity implements View.OnClickL
             public void run() {
                 mTvResultCompanyName.setText(String.format(getResources().getString(R.string.string_format_company_name), companyInfo.getCompanyName()));
                 SharedPreferencesUtil.putObject(CreateCompanyActivity.this, CompanyInfo.KEY_COMPANYINFO_OBJ, companyInfo);
+                mAppConfig.mCompanyInfo = companyInfo;
                 onCompanyCreateSuccess();
             }
         });

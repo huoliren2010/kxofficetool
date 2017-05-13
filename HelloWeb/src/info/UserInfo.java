@@ -12,6 +12,10 @@ public class UserInfo {
 	int departmentid = -1;
 	String signmessage;
 
+	public UserInfo() {
+
+	}
+
 	@Override
 	public String toString() {
 		JSONObject json = new JSONObject();

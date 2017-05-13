@@ -1,4 +1,4 @@
-package com.kx.officetool;
+package com.kx.officetool.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,9 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by huoliren on 2017/4/15.
- */
+import com.kx.officetool.R;
 
 public class ContactFragment extends Fragment {
     @Nullable

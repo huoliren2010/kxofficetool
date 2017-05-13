@@ -29,7 +29,6 @@ public class LogLet extends HttpServlet {
 
 		// 接收信息
 		String username = request.getParameter("username");
-		username = new String(username.getBytes("ISO-8859-1"), "UTF-8");
 		String password = request.getParameter("password");
 		String confirm;
 		System.out.println(username + "--" + password);

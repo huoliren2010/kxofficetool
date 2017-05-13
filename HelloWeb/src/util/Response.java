@@ -1,5 +1,6 @@
 package util;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class Response {
@@ -13,7 +14,7 @@ public class Response {
 	public static final String SUCCESS = "SUCCESS";// string
 
 	int status;
-	JSONObject data;
+	Object data;
 	String message;
 
 	public Response addStatus(int status) {
@@ -32,6 +33,27 @@ public class Response {
 	}
 
 	public Response(int status, JSONObject data, String message) {
+		super();
+		this.status = status;
+		this.data = data;
+		this.message = message;
+	}
+
+	public Response(int status, boolean data, String message) {
+		super();
+		this.status = status;
+		this.data = data;
+		this.message = message;
+	}
+
+	public Response(int status, int data, String message) {
+		super();
+		this.status = status;
+		this.data = data;
+		this.message = message;
+	}
+
+	public Response(int status, JSONArray data, String message) {
 		super();
 		this.status = status;
 		this.data = data;

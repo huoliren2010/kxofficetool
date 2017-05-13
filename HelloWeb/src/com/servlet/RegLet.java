@@ -2,6 +2,7 @@ package com.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,14 +25,14 @@ public class RegLet extends HttpServlet {
 	 */
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		request.setCharacterEncoding("UTF-8");
 		// 新建服务对象
 		Service serv = new Service();
 
 		// 接收注册信息
 		// String username = request.getParameter("r_name");
 		String username = request.getParameter("username");
-		username = new String(username.getBytes("ISO-8859-1"), "UTF-8");
+//		username = new String(username.getBytes("ISO-8859-1"), "UTF-8");
 		String password = request.getParameter("password");
 		String phonenumber = request.getParameter("phonenumber");
 		String confirm;

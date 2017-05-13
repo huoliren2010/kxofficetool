@@ -1,4 +1,4 @@
-package com.kx.officetool;
+package com.kx.officetool.fragment;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.kx.officetool.CompanyDetailsActivity;
+import com.kx.officetool.R;
 import com.kx.officetool.infos.Actions;
 import com.kx.officetool.infos.CompanyInfo;
 import com.kx.officetool.infos.LoadUserAvatar;
@@ -41,6 +43,7 @@ public class CompanyDetailFragment extends Fragment implements View.OnClickListe
         viewRoot.findViewById(R.id.viewroot_company_avatar).setOnClickListener(this);
         viewRoot.findViewById(R.id.viewroot_company_manager).setOnClickListener(this);
         viewRoot.findViewById(R.id.viewroot_company_meetingroom).setOnClickListener(this);
+        viewRoot.findViewById(R.id.viewroot_company_department).setOnClickListener(this);
         mIvCompanyAvatar = (ImageView) viewRoot.findViewById(R.id.iv_company_avatar);
         mTvCompanyName = (TextView) viewRoot.findViewById(R.id.tv_company_name);
         mTvCompanyId = (TextView) viewRoot.findViewById(R.id.tv_company_id);
@@ -69,6 +72,9 @@ public class CompanyDetailFragment extends Fragment implements View.OnClickListe
         switch (v.getId()) {
             case R.id.viewroot_company_avatar:
                 startActivityForResult(IntentUtil.getCropIntent(), REQUEST_CROP);
+                break;
+            case R.id.viewroot_company_department:
+                ((CompanyDetailsActivity)getActivity()).showCompanyDepartmentFragment();
                 break;
             case R.id.viewroot_company_manager:
                 ((CompanyDetailsActivity)getActivity()).showCompanyManagerFragment();

@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.kx.officetool.fragment.SignFillFragment;
 import com.kx.officetool.infos.DailySignInfo;
 import com.kx.officetool.infos.LoadUserAvatar;
 import com.kx.officetool.infos.MyAddress;
@@ -26,7 +27,7 @@ public class DailySignActivity extends AppCompatActivity {
     SignFillFragment mSignFillFragment;
     BdLocationFragment mBdLocationFragment;
     List<DailySignInfo> mListSignInfos = null;
-    MyAddress mMyAddress = new MyAddress();
+    public MyAddress mMyAddress = new MyAddress();
     UserInfo mUserInfo;
     View mMainContent = null;
 

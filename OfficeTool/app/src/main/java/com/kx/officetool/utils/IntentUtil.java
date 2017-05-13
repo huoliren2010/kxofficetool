@@ -3,10 +3,12 @@ package com.kx.officetool.utils;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 
 public class IntentUtil {
-    public static Intent getCropIntent(){
+    public static Intent getCropIntent() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 
         intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
@@ -30,5 +32,13 @@ public class IntentUtil {
         intent.putExtra("noFaceDetection", true); // no face detection
 
         return intent;
+    }
+
+    public static Intent getContactsIntent() {
+        Uri uri = ContactsContract.Contacts.CONTENT_URI;
+        Intent intent = new Intent(Intent.ACTION_PICK,
+                uri);
+        return intent;
+
     }
 }

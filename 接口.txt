@@ -1,0 +1,41 @@
+http://192.168.0.105:8080/
+
+登录 HelloWeb/LogLet
+username String 用户名必填
+password String 密码必填
+
+注册 HelloWeb/RegLet
+username String 用户名必填
+password String 密码必填
+phonenumber String 手机号必填
+
+修改用户信息 
+HelloWeb/UpdateUserInfo
+username String 用户名 选填
+avatar String 选填
+gender String 选填
+departmentid int 选填
+signmessage String 选填
+id int 用户id 必填
+ 
+创建公司
+HelloWeb/CreateCompany
+companyname String 公司名 必填
+uid int 用户id 必填
+
+创建部门
+HelloWeb/CreateDepartMent 
+departName String 部门名字 必填
+companyid int 公司id 必填
+leaderid int 用户id 表示leader 必填
+
+修改部门
+
+创建会议室
+删除会议室
+增加管理员
+HelloWeb/CreateDepartMent 
+uid int 用户id必填
+copanyid int 公司id必填
+
+删除管理员

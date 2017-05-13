@@ -47,4 +47,13 @@ public class MeetingRoom {
 		this.companyid = companyid;
 	}
 
+	public JSONObject toJSONObject() {
+		JSONObject json = new JSONObject();
+		json.put("id", id);
+		if (rname != null)
+			json.put("rname", rname);
+		json.put("companyid", companyid);
+		return json;
+	}
+
 }

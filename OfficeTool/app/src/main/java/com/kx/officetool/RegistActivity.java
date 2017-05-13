@@ -21,6 +21,9 @@ import com.kx.officetool.service.WebService;
 import com.kx.officetool.utils.CommonUtil;
 import com.kx.officetool.utils.SharedPreferencesUtil;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 public class RegistActivity extends BaseActivity implements View.OnClickListener {
     private Button mBtnRegist = null;
     private EditText mEditTextNickName = null, mEditTextPsw = null, mEditTextPhoneNumber = null;

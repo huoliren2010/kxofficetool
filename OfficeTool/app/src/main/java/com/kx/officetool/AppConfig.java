@@ -2,6 +2,7 @@ package com.kx.officetool;
 
 import android.content.Context;
 
+import com.kx.officetool.infos.CompanyInfo;
 import com.kx.officetool.infos.UserInfo;
 
 public class AppConfig {
@@ -23,4 +24,5 @@ public class AppConfig {
     }
 
     public UserInfo mUserInfo = null;
+    public CompanyInfo mCompanyInfo = null;
 }
