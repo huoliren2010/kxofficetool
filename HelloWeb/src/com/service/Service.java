@@ -705,26 +705,144 @@ public class Service {
 		dbmanager.closeDB();
 		return list;
 	}
-	
-	public boolean updateNotice(int id, String message){
+
+	public boolean updateNotice(int id, String message) {
 		String format = "update notice set message='%s' where id=%d";
 		String sql = String.format(format, message, id);
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
 		int rt = dbmanager.executeUpdate(sql);
 		dbmanager.closeDB();
-		if(rt != 0)return true;
+		if (rt != 0)
+			return true;
 		return false;
 	}
-	
-	public boolean deleteNotice(int id){
+
+	public boolean deleteNotice(int id) {
 		String format = "delete from notice where id=%d";
 		String sql = String.format(format, id);
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
 		int rt = dbmanager.executeUpdate(sql);
 		dbmanager.closeDB();
-		if(rt != 0)return true;
+		if (rt != 0)
+			return true;
 		return false;
+	}
+
+	public Message addMessage(int uid, int fid, String message, String time) {
+		String format = "insert into message(uid, fid, message, time) values(%d, %d, '%s','%s')";
+		String sql = String.format(format, uid, fid, message, time);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		Message msg = null;
+		int exrt = dbmanager.executeUpdate(sql);
+		if (exrt != 0) {
+			format = "select id from message where uid=%d and fid=%d and message='%s' and time='%s'";
+			sql = String.format(format, uid, fid, message, time);
+			ResultSet rt = dbmanager.executeQuery(sql);
+			try {
+				if (rt.next()) {
+					int id = rt.getInt(1);
+					msg = new Message(id, uid, fid, message, time);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		dbmanager.closeDB();
+		return msg;
+	}
+
+	public List<Message> queryReceiveMessge(int fid) {
+		String format = "select * from message where fid=%d";
+		String sql = String.format(format, fid);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		ResultSet rt = dbmanager.executeQuery(sql);
+		List<Message> list = null;
+		try {
+			while (rt.next()) {
+				if (list == null)
+					list = new ArrayList<Message>();
+				int idCol = rt.findColumn("id");
+				int uidCol = rt.findColumn("uid");
+				int msgCol = rt.findColumn("message");
+				int timeCol = rt.findColumn("time");
+
+				int id = rt.getInt(idCol);
+				int uid = rt.getInt(uidCol);
+				String message = rt.getString(msgCol);
+				String time = rt.getString(timeCol);
+				Message msg = new Message(id, uid, fid, message, time);
+				list.add(msg);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		dbmanager.closeDB();
+		return list;
+	}
+
+	public List<Message> querySendMessage(int uid) {
+		String format = "select * from message where uid=%d";
+		String sql = String.format(format, uid);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		ResultSet rt = dbmanager.executeQuery(sql);
+		List<Message> list = null;
+		try {
+			while (rt.next()) {
+				if (list == null)
+					list = new ArrayList<Message>();
+				int idCol = rt.findColumn("id");
+				int fidCol = rt.findColumn("fid");
+				int msgCol = rt.findColumn("message");
+				int timeCol = rt.findColumn("time");
+
+				int id = rt.getInt(idCol);
+				int fid = rt.getInt(fidCol);
+				String message = rt.getString(msgCol);
+				String time = rt.getString(timeCol);
+				Message msg = new Message(id, uid, fid, message, time);
+				list.add(msg);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		dbmanager.closeDB();
+		return list;
+	}
+
+	public List<Message> queryMessage(int uid, int fid) {
+		String format = "select * from message where uid=%d and fid=%d";
+		String sql = String.format(format, uid, fid);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		ResultSet rt = dbmanager.executeQuery(sql);
+		List<Message> list = null;
+		try {
+			while (rt.next()) {
+				if (list == null)
+					list = new ArrayList<Message>();
+				int idCol = rt.findColumn("id");
+				int msgCol = rt.findColumn("message");
+				int timeCol = rt.findColumn("time");
+
+				int id = rt.getInt(idCol);
+				String message = rt.getString(msgCol);
+				String time = rt.getString(timeCol);
+				Message msg = new Message(id, uid, fid, message, time);
+				list.add(msg);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		dbmanager.closeDB();
+		return list;
 	}
 }

@@ -6,6 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import info.Approval;
+import info.Message;
 import info.Notice;
 import info.UserInfo;
 
@@ -35,6 +36,16 @@ public class Utils {
 		if(notice.isEmpty())return null;
 		JSONArray jsonArray = new JSONArray();
 		for(Notice approv: notice){
+			jsonArray.put(approv.toJSONObject());
+		}
+		return jsonArray;
+	}
+
+	public static JSONArray transFromListMessage(List<Message> list) {
+		if(list == null)return null;
+		if(list.isEmpty())return null;
+		JSONArray jsonArray = new JSONArray();
+		for(Message approv: list){
 			jsonArray.put(approv.toJSONObject());
 		}
 		return jsonArray;

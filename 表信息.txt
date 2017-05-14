@@ -3,7 +3,7 @@ company(id, name, ownerid, avatar);
 department(id, partname, companyid, leaderid);
 companyRoom(id, roomname, companyid);
 notice(id, uid, departid, message);
-message(id, uid, fid, msg);
+message(id, uid, fid, message, time);
 approval(id, uid, uname, message, starttime, endtime,type, departid, status, agree, result);
 dailysign(id, uid, address, time, departid);
 manager(id, uid, companyid)
@@ -34,7 +34,7 @@ create table companyRoom(id int not null auto_increment, roomname varchar(20) CH
 
 create table notice(id int not null auto_increment, uid int, departid int, message varchar(255) CHARACTER SET UTF8 NOT NULL, unique(uid, departid, message), constraint FK_NoticeDepartShip foreign key (departid) references department(id) on delete restrict on update restrict, primary key(id))engine=innodb default charset=utf8 auto_increment=1;
 
-create table message(id int not null auto_increment, uid int, fid int, msg varchar(255) CHARACTER SET UTF8 NOT NULL, primary key(id))engine=innodb default charset=utf8 auto_increment=1;
+create table message(id int not null auto_increment, uid int, fid int, message varchar(255) CHARACTER SET UTF8 NOT NULL, time char(20), primary key(id))engine=innodb default charset=utf8 auto_increment=1;
 
 create table approval(id int not null auto_increment, uid int,uname char(20) CHARACTER SET UTF8 NOT NULL, message varchar(255) CHARACTER SET UTF8 NOT NULL, starttime char(20), endtime char(20), type set('YEAR', 'SICK', 'BIRTH', 'MARRY', 'NOMRAL'), departid int, status set('START','END'), agree bool default false, result char(128), constraint FK_ApprovalShip foreign key (uid) references user(id) on delete restrict on update restrict, primary key(id),unique(uid, starttime, endtime,departid, agree))engine=innodb default charset=utf8 auto_increment=1;
 

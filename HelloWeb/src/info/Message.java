@@ -4,25 +4,31 @@ import org.json.JSONObject;
 
 public class Message {
 	int id, uid, fid;
-	String msg;
+	String message;
+	String time;
 
 	@Override
 	public String toString() {
 		JSONObject json = new JSONObject();
 		json.put("id", id);
-		if (msg != null)
-			json.put("msg", msg);
+		if (message != null)
+			json.put("message", message);
 		json.put("uid", uid);
 		json.put("fid", fid);
+		json.put("time", time);
 		return json.toString();
 	}
 
-	public Message(int id2, int uid2, int fid2, String msg2) {
-		this.id = id2;
-		this.uid = uid2;
-		this.fid = fid2;
-		this.msg = msg2;
+
+	public Message(int id, int uid, int fid, String message, String time) {
+		super();
+		this.id = id;
+		this.uid = uid;
+		this.fid = fid;
+		this.message = message;
+		this.time = time;
 	}
+
 
 	public int getId() {
 		return id;
@@ -49,11 +55,23 @@ public class Message {
 	}
 
 	public String getMsg() {
-		return msg;
+		return message;
 	}
 
 	public void setMsg(String msg) {
-		this.msg = msg;
+		this.message = msg;
+	}
+
+
+	public JSONObject toJSONObject() {
+		JSONObject json = new JSONObject();
+		json.put("id", id);
+		if (message != null)
+			json.put("message", message);
+		json.put("uid", uid);
+		json.put("fid", fid);
+		json.put("time", time);
+		return json;
 	}
 
 }
