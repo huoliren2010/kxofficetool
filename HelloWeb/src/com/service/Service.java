@@ -27,7 +27,7 @@ public class Service {
 		// 获取Sql查询语句
 		String formatSql = "select * from user where username='%s' and password='%s'";
 		String logSql = String.format(formatSql, username, password);
-		System.out.println("login sqlstr="+logSql);
+		System.out.println("login sqlstr=" + logSql);
 
 		// 获取DB对象
 		DBManager dbmanager = DBManager.createInstance();
@@ -111,7 +111,8 @@ public class Service {
 
 	public UserInfo updateUser(UserInfo userInfo) {
 		String format = "update user set username='%s', avatar='%s', gender='%s', departmentid=%d, signmessage='%s' where id=%d";
-		String sql = String.format(format, userInfo.getUsername(), userInfo.getAvatar(), userInfo.getGender(), userInfo.getDepartmentid(), userInfo.getSignmessage(), userInfo.getId());
+		String sql = String.format(format, userInfo.getUsername(), userInfo.getAvatar(), userInfo.getGender(),
+				userInfo.getDepartmentid(), userInfo.getSignmessage(), userInfo.getId());
 		// 获取DB对象
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
@@ -214,7 +215,7 @@ public class Service {
 		dbmanager.closeDB();
 		return null;
 	}
-	
+
 	public UserInfo createManager(int uid, int companyid) {
 		String format = "insert into manager(uid, companyid) values(%d, %d)";
 		String sql = String.format(format, uid, companyid);
@@ -222,7 +223,7 @@ public class Service {
 		dbmanager.connectDB();
 
 		try {
-		int ret = dbmanager.executeUpdate(sql);
+			int ret = dbmanager.executeUpdate(sql);
 			if (ret != 0) {
 				String formatSql = "select * from user where id=%d";
 				String logSql = String.format(formatSql, uid);
@@ -272,15 +273,15 @@ public class Service {
 			ResultSet rs = dbmanager.executeQuery(sql);
 			format = "select * from user where departmentid=%d";
 			List<Integer> listDepartmentIds = new ArrayList<Integer>();
-			while(rs.next()){
+			while (rs.next()) {
 				int departmentId = rs.getInt(1);
 				listDepartmentIds.add(departmentId);
 			}
 			mListUserInfos = new ArrayList<UserInfo>();
-			for(Integer departmentId : listDepartmentIds){
+			for (Integer departmentId : listDepartmentIds) {
 				sql = String.format(format, departmentId);
 				ResultSet executeQuery = dbmanager.executeQuery(sql);
-				while(executeQuery.next()){
+				while (executeQuery.next()) {
 					int idColoumn = executeQuery.findColumn("id");
 					int uid = executeQuery.getInt(idColoumn);
 					int unameColoumn = executeQuery.findColumn("username");
@@ -325,15 +326,15 @@ public class Service {
 			ResultSet rs = dbmanager.executeQuery(sql);
 			format = "select * from user where departmentid=%d";
 			List<Integer> listDepartmentIds = new ArrayList<Integer>();
-			while(rs.next()){
+			while (rs.next()) {
 				int departmentId = rs.getInt(1);
 				listDepartmentIds.add(departmentId);
 			}
 			mListUserInfos = new ArrayList<UserInfo>();
-			for(Integer departmentId : listDepartmentIds){
+			for (Integer departmentId : listDepartmentIds) {
 				sql = String.format(format, departmentId);
 				ResultSet executeQuery = dbmanager.executeQuery(sql);
-				while(executeQuery.next()){
+				while (executeQuery.next()) {
 					int idColoumn = executeQuery.findColumn("id");
 					int uid = executeQuery.getInt(idColoumn);
 					int unameColoumn = executeQuery.findColumn("username");
@@ -367,7 +368,7 @@ public class Service {
 		dbmanager.connectDB();
 		return mListUserInfos;
 	}
-	
+
 	public List<UserInfo> queryManagersFromCompanyid(int companyid) {
 		String format = "select * from user where id=some(select uid from manager where companyid=%d)";
 		String sql = String.format(format, companyid);
@@ -410,7 +411,7 @@ public class Service {
 		dbmanager.connectDB();
 		return mListUserInfos;
 	}
-	
+
 	public CompanyInfo queryCompanyInfoFromCompanyid(int compnayid) {
 		String format = "select * from company where id=%d";
 		String sql = String.format(format, compnayid);
@@ -438,7 +439,7 @@ public class Service {
 		}
 		return null;
 	}
-	
+
 	public CompanyInfo queryCompanyInfoFromDepartmentid(int departmentid) {
 		String format = "select * from company where id=some(select companyid from department where departmentid=%d)";
 		String sql = String.format(format, departmentid);
@@ -492,7 +493,7 @@ public class Service {
 		dbmanager.closeDB();
 		return list;
 	}
-	
+
 	public MeetingRoom createMeetingRoom(String roomname, int companyid) {
 		String format = "insert into companyRoom(roomname, companyid) values('%s', %d)";
 		String sql = String.format(format, roomname, companyid);
@@ -517,6 +518,213 @@ public class Service {
 		dbmanager.closeDB();
 		return mt;
 	}
+
+	public DailySign createDailySign(int uid, String address, String time, int departid) {
+		String format = "insert into dailysign(uid, address, time, departid) values(%d,'%s','%s',%d)";
+		String sql = String.format(format, uid, address, time, departid);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		int exrt = dbmanager.executeUpdate(sql);
+		DailySign dailySign = null;
+		if (exrt != 0) {
+			format = "select id from dailysign where uid=%d and address='%s' and time='%s' and departid=%d";
+			sql = String.format(format, uid, address, time, departid);
+			ResultSet rt = dbmanager.executeQuery(sql);
+			try {
+				if (rt.next()) {
+					int id = rt.getInt(1);
+					dailySign = new DailySign(id, uid, address, time, departid);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		dbmanager.closeDB();
+		return dailySign;
+	}
+
+	public List<DailySign> queryDailySign(int uid, int departid) {
+		String format = "select * from dailysign where uid=%d and departid=%d";
+		String sql = String.format(format, uid, departid);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		ResultSet rt = dbmanager.executeQuery(sql);
+		List<DailySign> list = null;
+		try {
+			while (rt.next()) {
+				if (list == null)
+					list = new ArrayList<DailySign>();
+				int idCol = rt.findColumn("id");
+				int addressCol = rt.findColumn("address");
+				int timeCol = rt.findColumn("time");
+
+				int id = rt.getInt(idCol);
+				String address = rt.getString(addressCol);
+				String time = rt.getString(timeCol);
+				DailySign dailySign = new DailySign(id, uid, address, time, departid);
+				list.add(dailySign);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		dbmanager.closeDB();
+		return list;
+	}
+
+	public Approval createApproval(int uid, String uname, String message, String starttime, String endtime, String type,
+			int departid) {
+		String format = "insert into approval(uid, uname, message, starttime, endtime,type, departid, status) values(%d, '%s', '%s', '%s', '%s', '%s', %d, '%s')";
+		String sql = String.format(format, uid, uname, message, starttime, endtime, type, departid,
+				Approval.STATUS_START);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		int exrt = dbmanager.executeUpdate(sql);
+		Approval approval = null;
+		if (exrt != 0) {
+			format = "select id from approval where uid=%d and starttime='%s' and endtime='%s' and departid=%d";
+			sql = String.format(format, uid, starttime, endtime, departid);
+			ResultSet rt = dbmanager.executeQuery(sql);
+			try {
+				if (rt.next()) {
+					int id = rt.getInt(1);
+					approval = new Approval(id, uid, uname, message, starttime, endtime, type, departid,
+							Approval.STATUS_START);
+					approval.setAgree(false);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		dbmanager.closeDB();
+		return approval;
+	}
+
+	public List<Approval> queryApproval(int departid) {
+		String format = "select * from approval where departid=%d and status='%s'";
+		String sql = String.format(format, departid, Approval.STATUS_START);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		ResultSet rt = dbmanager.executeQuery(sql);
+		List<Approval> list = null;
+		try {
+			while (rt.next()) {
+				if (list == null)
+					list = new ArrayList<Approval>();
+				int idCol = rt.findColumn("id");
+				int uidCol = rt.findColumn("uid");
+				int unameCol = rt.findColumn("uname");
+				int messageCol = rt.findColumn("message");
+				int starttCol = rt.findColumn("starttime");
+				int endtCol = rt.findColumn("endtime");
+				int tyCol = rt.findColumn("type");
+				int statusCol = rt.findColumn("status");
+				int id = rt.getInt(idCol);
+				int uid = rt.getInt(uidCol);
+				String uname = rt.getString(unameCol);
+				String message = rt.getString(messageCol);
+				String starttime = rt.getString(starttCol);
+				String endtime = rt.getString(endtCol);
+				String type = rt.getString(tyCol);
+				String status = rt.getString(statusCol);
+				Approval app = new Approval(id, uid, uname, message, starttime, endtime, type, departid, status);
+				list.add(app);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		dbmanager.closeDB();
+		return list;
+	}
+
+	public boolean updateApproval(int id, String agree, String result) {
+		String format = "update approval set agree=%s, result='%s', status='%s' where id=%d";
+		String sql = String.format(format, agree, result, Approval.STATUS_END, id);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		int exrt = dbmanager.executeUpdate(sql);
+		dbmanager.closeDB();
+		if (exrt != 0) {
+			return true;
+		}
+		return false;
+	}
+
+	public Notice createNotice(int uid, int departid, String message) {
+		String format = "insert into notice(uid, departid, message) values(%d, %d, '%s')";
+		String sql = String.format(format, uid, departid, message);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		int exrt = dbmanager.executeUpdate(sql);
+		Notice notice = null;
+		if (exrt != 0) {
+			format = "select id from notice where uid=%d and departid=%d and message='%s'";
+			sql = String.format(format, uid, departid, message);
+			ResultSet rt = dbmanager.executeQuery(sql);
+			try {
+				if (rt.next()) {
+					int id = rt.getInt(1);
+					notice = new Notice(id, uid, departid, message);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		dbmanager.closeDB();
+		return notice;
+	}
+
+	public List<Notice> queryNotice(int departid) {
+		String format = "select * from notice where departid=%d";
+		String sql = String.format(format, departid);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		ResultSet rt = dbmanager.executeQuery(sql);
+		List<Notice> list = null;
+		try {
+			while (rt.next()) {
+				if (list == null)
+					list = new ArrayList<Notice>();
+				int idCol = rt.findColumn("id");
+				int uidCol = rt.findColumn("uid");
+				int msgCol = rt.findColumn("message");
+				int id = rt.getInt(idCol);
+				int uid = rt.getInt(uidCol);
+				String message = rt.getString(msgCol);
+				Notice notice = new Notice(id, uid, departid, message);
+				list.add(notice);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		dbmanager.closeDB();
+		return list;
+	}
 	
+	public boolean updateNotice(int id, String message){
+		String format = "update notice set message='%s' where id=%d";
+		String sql = String.format(format, message, id);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		int rt = dbmanager.executeUpdate(sql);
+		dbmanager.closeDB();
+		if(rt != 0)return true;
+		return false;
+	}
 	
+	public boolean deleteNotice(int id){
+		String format = "delete from notice where id=%d";
+		String sql = String.format(format, id);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		int rt = dbmanager.executeUpdate(sql);
+		dbmanager.closeDB();
+		if(rt != 0)return true;
+		return false;
+	}
 }

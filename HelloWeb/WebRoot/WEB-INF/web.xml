@@ -34,6 +34,34 @@
 		<servlet-name>CreateRoom</servlet-name>
 		<servlet-class>com.servlet.CreateRoom</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>CreateDailySign</servlet-name>
+		<servlet-class>com.servlet.CreateDailySign</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CreateApproval</servlet-name>
+		<servlet-class>com.servlet.CreateApproval</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UpdateApproval</servlet-name>
+		<servlet-class>com.servlet.UpdateApproval</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>QueryApproval</servlet-name>
+		<servlet-class>com.servlet.QueryApproval</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CreateNotice</servlet-name>
+		<servlet-class>com.servlet.CreateNotice</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>QueryNotice</servlet-name>
+		<servlet-class>com.servlet.QueryNotice</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UpdateNotice</servlet-name>
+		<servlet-class>com.servlet.UpdateNotice</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>LogLet</servlet-name>
@@ -68,6 +96,35 @@
 		<servlet-name>CreateRoom</servlet-name>
 		<url-pattern>/CreateRoom</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CreateDailySign</servlet-name>
+		<url-pattern>/CreateDailySign</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CreateApproval</servlet-name>
+		<url-pattern>/CreateApproval</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UpdateApproval</servlet-name>
+		<url-pattern>/UpdateApproval</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>QueryApproval</servlet-name>
+		<url-pattern>/QueryApproval</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CreateNotice</servlet-name>
+		<url-pattern>/CreateNotice</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>QueryNotice</servlet-name>
+		<url-pattern>/QueryNotice</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UpdateNotice</servlet-name>
+		<url-pattern>/UpdateNotice</url-pattern>
+	</servlet-mapping>
+	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>

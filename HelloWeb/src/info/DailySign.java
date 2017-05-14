@@ -71,4 +71,16 @@ public class DailySign {
 		this.departmentid = departmentid;
 	}
 
+	public JSONObject toJSONObject() {
+		JSONObject json = new JSONObject();
+		json.put("id", id);
+		json.put("uid", uid);
+		json.put("departmentid", departmentid);
+		if (address != null)
+			json.put("address", address);
+		if (time != null)
+			json.put("time", time);
+		return json;
+	}
+
 }
