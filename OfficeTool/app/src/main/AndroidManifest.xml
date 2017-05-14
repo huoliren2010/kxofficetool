@@ -70,7 +70,9 @@
         <activity android:name=".ChooseUserActivity" />
         <activity android:name=".BroadActivity" />
         <activity android:name=".NoticeDetailActivity" />
-        <activity android:name=".SendNoticeActivity"></activity>
+        <activity android:name=".SendNoticeActivity" />
+        <activity android:name=".HoleActivity" />
+        <activity android:name=".CreateApprovalActivity"></activity>
     </application>
 
 </manifest>

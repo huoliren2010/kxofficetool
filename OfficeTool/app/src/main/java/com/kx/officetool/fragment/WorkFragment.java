@@ -19,6 +19,7 @@ import com.kx.officetool.AppConfig;
 import com.kx.officetool.BroadActivity;
 import com.kx.officetool.CompanyDetailsActivity;
 import com.kx.officetool.DailySignActivity;
+import com.kx.officetool.HoleActivity;
 import com.kx.officetool.JoinCompanyActivity;
 import com.kx.officetool.R;
 import com.kx.officetool.infos.CompanyInfo;
@@ -121,6 +122,7 @@ public class WorkFragment extends android.support.v4.app.Fragment implements Vie
                 startActivity(new Intent(getActivity(), DailySignActivity.class));
                 break;
             case R.id.tv_post_hols:
+                startActivity(new Intent(getActivity(), HoleActivity.class));
                 break;
             case R.id.tv_order_meetingroom:
                 break;
