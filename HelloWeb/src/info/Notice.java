@@ -15,23 +15,31 @@ public class Notice {
 	int id;
 	int uid;
 	int departid;
+	String title;
 	String message;
+	String time;
+
 	@Override
 	public String toString() {
 		JSONObject json = new JSONObject();
 		json.put("id", id);
 		json.put("uid", uid);
+		if (title != null)
+			json.put("title", title);
 		if (message != null)
 			json.put("message", message);
 		json.put("departid", departid);
+		json.put("time", time);
 		return json.toString();
 	}
 
-	public Notice(int id2, int uid, int departid, String message2) {
+	public Notice(int id2, int uid, int departid, String title, String message2, String time) {
 		this.id = id2;
 		this.uid = uid;
 		this.departid = departid;
+		this.title = title;
 		this.message = message2;
+		this.time = time;
 	}
 
 	public int getId() {
@@ -70,9 +78,12 @@ public class Notice {
 		JSONObject json = new JSONObject();
 		json.put("id", id);
 		json.put("uid", uid);
+		if (title != null)
+			json.put("title", title);
 		if (message != null)
 			json.put("message", message);
 		json.put("departid", departid);
+		json.put("time", time);
 		return json;
 	}
 

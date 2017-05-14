@@ -1,15 +1,16 @@
 package com.kx.officetool.service.response;
 
-import java.util.List;
+import com.kx.officetool.infos.Notice;
+
 
 public class NoticeResponse extends BaseResponse {
-    List<String> data;
+    Notice data;
 
-    public List<String> getData() {
+    public Notice getData() {
         return data;
     }
 
-    public void setData(List<String> data) {
+    public void setData(Notice data) {
         this.data = data;
     }
 }

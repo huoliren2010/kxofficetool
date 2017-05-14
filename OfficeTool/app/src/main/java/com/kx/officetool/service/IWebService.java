@@ -13,6 +13,7 @@ import com.kx.officetool.service.response.LogResponse;
 import com.kx.officetool.service.response.MessageResponse;
 import com.kx.officetool.service.response.MettingRoomResponse;
 import com.kx.officetool.service.response.NoticeResponse;
+import com.kx.officetool.service.response.NoticesResponse;
 import com.kx.officetool.service.response.RegResponse;
 import com.kx.officetool.service.response.UserInfoResponse;
 
@@ -67,7 +68,7 @@ public interface IWebService {
     Call<BoooleanResponse> deleteCompanyRoom(@QueryMap Map<String, String> params);
 
     @GET("HelloWeb/CreateNotice")
-    Call<BoooleanResponse> createNotice(@QueryMap Map<String, String> params);
+    Call<NoticeResponse> createNotice(@QueryMap Map<String, String> params);
 
     @GET("HelloWeb/UpdateNotice")
     Call<BoooleanResponse> updateNotice(@QueryMap Map<String, String> params);
@@ -76,7 +77,7 @@ public interface IWebService {
     Call<BoooleanResponse> deleteNotice(@QueryMap Map<String, String> params);
 
     @GET("HelloWeb/QueryNotice")
-    Call<NoticeResponse> queryNotice(@QueryMap Map<String, String> params);
+    Call<NoticesResponse> queryNotice(@Query("departid") int departid);
 
     @GET("HelloWeb/CreateMessage")
     Call<BoooleanResponse> createMessage(@QueryMap Map<String, String> params);

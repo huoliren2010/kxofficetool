@@ -682,21 +682,21 @@ public class Service {
 		return false;
 	}
 
-	public Notice createNotice(int uid, int departid, String message) {
-		String format = "insert into notice(uid, departid, message) values(%d, %d, '%s')";
-		String sql = String.format(format, uid, departid, message);
+	public Notice createNotice(int uid, int departid, String title, String message, String time) {
+		String format = "insert into notice(uid, departid, title, message, time) values(%d, %d, '%s', '%s', '%s')";
+		String sql = String.format(format, uid, departid, title, message, time);
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
 		int exrt = dbmanager.executeUpdate(sql);
 		Notice notice = null;
 		if (exrt != 0) {
-			format = "select id from notice where uid=%d and departid=%d and message='%s'";
-			sql = String.format(format, uid, departid, message);
+			format = "select id from notice where uid=%d and departid=%d and title=¡¯%s' and message='%s' and time='%s'";
+			sql = String.format(format, uid, departid, title, message, time);
 			ResultSet rt = dbmanager.executeQuery(sql);
 			try {
 				if (rt.next()) {
 					int id = rt.getInt(1);
-					notice = new Notice(id, uid, departid, message);
+					notice = new Notice(id, uid, departid, title, message, time);
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -720,11 +720,15 @@ public class Service {
 					list = new ArrayList<Notice>();
 				int idCol = rt.findColumn("id");
 				int uidCol = rt.findColumn("uid");
+				int titleCol = rt.findColumn("title");
 				int msgCol = rt.findColumn("message");
+				int timeCol = rt.findColumn("time");
 				int id = rt.getInt(idCol);
 				int uid = rt.getInt(uidCol);
+				String time = rt.getString(timeCol);
+				String title = rt.getString(titleCol);
 				String message = rt.getString(msgCol);
-				Notice notice = new Notice(id, uid, departid, message);
+				Notice notice = new Notice(id, uid, departid, title, message, time);
 				list.add(notice);
 			}
 		} catch (SQLException e) {

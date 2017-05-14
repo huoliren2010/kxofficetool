@@ -40,8 +40,8 @@
     <string name="string_goto_manager_curr">立即进入</string>
     <string name="string_format_company_id">公司id：%s</string>
     <string name="string_daily_sign">签到</string>
-    <string name="string_hols">请假</string>
-    <string name="string_post_board">发布公告</string>
+    <string name="string_hols">审批</string>
+    <string name="string_post_board">公告</string>
     <string name="string_order_meetingroom">预约会议室</string>
     <string name="string_company_details">公司信息</string>
     <string name="string_company_avatar">公司Logo</string>

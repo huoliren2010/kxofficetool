@@ -8,6 +8,7 @@ import com.kx.officetool.infos.DailySign;
 import com.kx.officetool.infos.DepartMent;
 import com.kx.officetool.infos.Manager;
 import com.kx.officetool.infos.MeetingRoom;
+import com.kx.officetool.infos.Notice;
 import com.kx.officetool.infos.UserInfo;
 import com.kx.officetool.service.response.BoooleanResponse;
 import com.kx.officetool.service.response.CompanyResponse;
@@ -18,6 +19,8 @@ import com.kx.officetool.service.response.DepartMentResponse;
 import com.kx.officetool.service.response.IntegerResponse;
 import com.kx.officetool.service.response.LogResponse;
 import com.kx.officetool.service.response.MettingRoomResponse;
+import com.kx.officetool.service.response.NoticeResponse;
+import com.kx.officetool.service.response.NoticesResponse;
 import com.kx.officetool.service.response.RegResponse;
 import com.kx.officetool.service.response.UserInfoResponse;
 
@@ -234,5 +237,47 @@ public class WebService {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public List<Notice> QueryNotices(int departmentid) {
+        Call<NoticesResponse> noticesResponseCall = mIWebService.queryNotice(departmentid);
+        try {
+            Response<NoticesResponse> execute = noticesResponseCall.execute();
+            return execute.body().getData();
+        } catch (IOException e) {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void deleteNotice(List<Notice> mEditList) {
+        Map<String, String> map = new HashMap<>();
+        for (Notice notice : mEditList) {
+            map.put("id", String.valueOf(notice.getId()));
+            map.put("type", Notice.TYPE_DELETE);
+            Call<BoooleanResponse> boooleanResponseCall = mIWebService.updateNotice(map);
+            try {
+                Response<BoooleanResponse> execute = boooleanResponseCall.execute();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void createNotice(int uid, List<Integer> departid, String title, String message) {
+        for(Integer integer : departid) {
+            Map<String, String> map = new HashMap<>();
+            map.put("uid", String.valueOf(uid));
+            map.put("departid", String.valueOf(integer));
+            map.put("title", title);
+            map.put("message", message);
+            Call<NoticeResponse> notice = mIWebService.createNotice(map);
+            try {
+                notice.execute();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kx.officetool.AppConfig;
+import com.kx.officetool.BroadActivity;
 import com.kx.officetool.CompanyDetailsActivity;
 import com.kx.officetool.DailySignActivity;
 import com.kx.officetool.JoinCompanyActivity;
@@ -125,7 +126,7 @@ public class WorkFragment extends android.support.v4.app.Fragment implements Vie
                 break;
             case R.id.tv_post_board:
                 if(AppConfig.getInstance().isManager()){
-
+                    startActivity(new Intent(getActivity(), BroadActivity.class));
                 }else ToastUtil.showShort(getActivity(), "只有管理员才能发布公告");
                 break;
         }

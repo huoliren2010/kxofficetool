@@ -22,6 +22,7 @@ import util.Response;
 
 public class CreateNotice extends HttpServlet {
 	private static String TAG = CreateNotice.class.getSimpleName();
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -31,19 +32,23 @@ public class CreateNotice extends HttpServlet {
 
 		// 接收信息
 		int uid = Integer.valueOf(request.getParameter("uid"));
+		String title = request.getParameter("title");
 		String msg = request.getParameter("message");
 		int departid = Integer.valueOf(request.getParameter("departid"));
 		String message;
-		System.out.println("CreateNotice(" + uid + "," + msg +", "+departid+") creating");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String time = simpleDateFormat.format(new java.util.Date(System.currentTimeMillis()));
+		System.out
+				.println("CreateNotice(" + uid + "," + title + "," + msg + ", " + departid + "," + time + ") creating");
 		// 验证处理
-		
-		Notice notice = serv.createNotice(uid, departid, msg);
+
+		Notice notice = serv.createNotice(uid, departid, title, msg, time);
 		int status = Response.ERROR_CODE;
 		if (notice != null) {
-			message = "Succss "+TAG;
+			message = "Succss " + TAG;
 			status = Response.SUCCESS_CODE;
 		} else {
-			message = "Failed "+TAG;
+			message = "Failed " + TAG;
 		}
 		System.out.println(message);
 		// 返回信息
@@ -51,7 +56,7 @@ public class CreateNotice extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		String resp = new Response(status, notice.toJSONObject(), message).toString();
-		System.out.println(TAG+" resp=" + resp);
+		System.out.println(TAG + " resp=" + resp);
 		out.print(resp);
 		// out.print("用户名：" + username);
 		// out.print("密码：" + password);

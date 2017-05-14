@@ -67,7 +67,10 @@
 
         <activity android:name=".DailySignActivity" />
         <activity android:name=".BDLocationActivity" />
-        <activity android:name=".ChooseUserActivity"></activity>
+        <activity android:name=".ChooseUserActivity" />
+        <activity android:name=".BroadActivity" />
+        <activity android:name=".NoticeDetailActivity" />
+        <activity android:name=".SendNoticeActivity"></activity>
     </application>
 
 </manifest>
