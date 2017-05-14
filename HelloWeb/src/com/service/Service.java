@@ -441,7 +441,7 @@ public class Service {
 	}
 
 	public CompanyInfo queryCompanyInfoFromDepartmentid(int departmentid) {
-		String format = "select * from company where id=some(select companyid from department where departmentid=%d)";
+		String format = "select * from company where id=some(select companyid from department where id=%d)";
 		String sql = String.format(format, departmentid);
 		DBManager dbmanager = DBManager.createInstance();
 		dbmanager.connectDB();
@@ -459,6 +459,7 @@ public class Service {
 				companyInfo.setCompanyMembers(queryAllUserFromCompanyid(cid));
 				companyInfo.setCompanyManagers(queryManagersFromCompanyid(cid));
 				companyInfo.setCompanyMeetingRooms(queryMeetingRoomFormCompanyid(cid));
+				companyInfo.setDepartment(queryDepartFromCompanyid(cid));
 				return companyInfo;
 			}
 		} catch (SQLException e) {
@@ -466,6 +467,34 @@ public class Service {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	private List<DepartMent> queryDepartFromCompanyid(int cid) {
+		String format = "select * from department where companyid=%d";
+		String sql = String.format(format, cid);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		ResultSet rs = dbmanager.executeQuery(sql);
+		List<DepartMent> list = null;
+		try {
+			while (rs.next()) {
+				if (list == null)
+					list = new ArrayList<DepartMent>();
+				int idColoumn = rs.findColumn("id");
+				int partnameCol = rs.findColumn("partname");
+				int uidCol = rs.findColumn("leaderid");
+				int id = rs.getInt(idColoumn);
+				String partname = rs.getString(partnameCol);
+				int uid = rs.getInt(uidCol);
+				DepartMent dpart = new DepartMent(id, partname, cid, uid);
+				list.add(dpart);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		dbmanager.closeDB();
+		return list;
 	}
 
 	public List<MeetingRoom> queryMeetingRoomFormCompanyid(int cid) {
@@ -844,5 +873,52 @@ public class Service {
 		}
 		dbmanager.closeDB();
 		return list;
+	}
+
+	public List<CompanyInfo> queryCompanyInfoFromCompanyName(String companyname) {
+		String format = "select * from company where name='%s'";
+		String sql = String.format(format, companyname);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		ResultSet rs = dbmanager.executeQuery(sql);
+		List<CompanyInfo> list = null;
+		try {
+			while (rs.next()) {
+				if (list == null)
+					list = new ArrayList<CompanyInfo>();
+				int cidColoumn = rs.findColumn("id");
+				int cid = rs.getInt(cidColoumn);
+				int cnameColoumn = rs.findColumn("name");
+				String cname = rs.getString(cnameColoumn);
+				int uidColoumn = rs.findColumn("ownerid");
+				int cuid = rs.getInt(uidColoumn);
+				CompanyInfo companyInfo = new CompanyInfo(cid, cname, cuid);
+				list.add(companyInfo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		dbmanager.closeDB();
+		return list;
+	}
+
+	public int joinCompany(int uid, int companyid) {
+		String format = "select id from department where companyid=%d";
+		String sql = String.format(format, companyid);
+		DBManager dbmanager = DBManager.createInstance();
+		dbmanager.connectDB();
+		ResultSet rs = dbmanager.executeQuery(sql);
+		int departid = 0;
+		try {
+			if (rs.next()) {
+				departid = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		dbmanager.closeDB();
+		return departid;
 	}
 }

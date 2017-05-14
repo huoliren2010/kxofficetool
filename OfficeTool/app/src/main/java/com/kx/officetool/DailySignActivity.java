@@ -13,20 +13,23 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.kx.officetool.fragment.SignFillFragment;
+import com.kx.officetool.infos.DailySign;
 import com.kx.officetool.infos.DailySignInfo;
 import com.kx.officetool.infos.LoadUserAvatar;
 import com.kx.officetool.infos.MyAddress;
 import com.kx.officetool.infos.UserInfo;
+import com.kx.officetool.service.WebService;
 import com.kx.officetool.utils.SharedPreferencesUtil;
+import com.kx.officetool.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DailySignActivity extends AppCompatActivity {
+public class DailySignActivity extends BaseActivity {
     FragmentManager mFragmentManager = null;
     SignFillFragment mSignFillFragment;
     BdLocationFragment mBdLocationFragment;
-    List<DailySignInfo> mListSignInfos = null;
+    List<DailySign> mListSignInfos = null;
     public MyAddress mMyAddress = new MyAddress();
     UserInfo mUserInfo;
     View mMainContent = null;
@@ -42,7 +45,7 @@ public class DailySignActivity extends AppCompatActivity {
                 finish();
             }
         });
-        mUserInfo = SharedPreferencesUtil.getObject(DailySignActivity.this, UserInfo.KEY_USERINFO_OBJ, UserInfo.class);
+        mUserInfo = mAppConfig.getUserInfo();
         mFragmentManager = getSupportFragmentManager();
         mSignFillFragment = new SignFillFragment();
         mBdLocationFragment = new BdLocationFragment();
@@ -55,19 +58,31 @@ public class DailySignActivity extends AppCompatActivity {
                 showSignFillFragment(mMyAddress.getAddress());
             }
         });
-        ListView mListView = (ListView) findViewById(R.id.listview);
+        final ListView mListView = (ListView) findViewById(R.id.listview);
         mListView.setAdapter(mListAdapter);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                queryDailySigns();
+            }
+        }).start();
     }
+
+    private void queryDailySigns() {
+        mListSignInfos = WebService.getInstance().queryDailySign(mUserInfo.getId(), mUserInfo.getDepartmentid());
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mListAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
 
     @Override
     protected void onResume() {
         super.onResume();
-        loadSignInfos();
         mListAdapter.notifyDataSetChanged();
-    }
-
-    private void loadSignInfos() {
-        mListSignInfos = SharedPreferencesUtil.getObject(DailySignActivity.this, DailySignInfo.KEY_SIGNINFO_OBJ, ArrayList.class);
     }
 
     private BaseAdapter mListAdapter = new BaseAdapter() {
@@ -100,19 +115,35 @@ public class DailySignActivity extends AppCompatActivity {
             } else viewHolder = (ViewHolder) convertView.getTag();
             LoadUserAvatar.getInstance(DailySignActivity.this).loadAvatar(viewHolder.avatar, mUserInfo.getUserAvatar());
             viewHolder.nickName.setText(mUserInfo.getUserName());
-            DailySignInfo dailySignInfo = mListSignInfos.get(position);
-            viewHolder.address.setText(dailySignInfo.getAddress());
-            viewHolder.dateTime.setText(dailySignInfo.getTime());
+            DailySign dailySign = mListSignInfos.get(position);
+            viewHolder.address.setText(dailySign.getAddress());
+            viewHolder.dateTime.setText(dailySign.getTime());
             return convertView;
         }
     };
 
-    public void addDailySignInfo(DailySignInfo dailySignInfo) {
-        if (mListSignInfos == null) {
-            mListSignInfos = new ArrayList<>();
-        }
-        mListSignInfos.add(dailySignInfo);
-        SharedPreferencesUtil.putObject(DailySignActivity.this, DailySignInfo.KEY_SIGNINFO_OBJ, mListSignInfos);
+    public void addDailySignInfo(String message, final String time, final String address) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                DailySign dailySign = WebService.getInstance().createDailySign(mUserInfo.getId(), mUserInfo.getDepartmentid(), address);
+                if (dailySign != null) {
+                    if (mListSignInfos == null) mListSignInfos = new ArrayList<DailySign>();
+                    mListSignInfos.add(dailySign);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mListAdapter.notifyDataSetChanged();
+                        }
+                    });
+                } else runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ToastUtil.showShort(DailySignActivity.this, "签到异常!");
+                    }
+                });
+            }
+        }).start();
     }
 
     class ViewHolder {

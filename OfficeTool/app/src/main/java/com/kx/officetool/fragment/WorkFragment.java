@@ -24,6 +24,7 @@ import com.kx.officetool.infos.CompanyInfo;
 import com.kx.officetool.infos.LoadUserAvatar;
 import com.kx.officetool.infos.UserInfo;
 import com.kx.officetool.utils.SharedPreferencesUtil;
+import com.kx.officetool.utils.ToastUtil;
 
 import static com.kx.officetool.infos.Actions.ACTION_ON_COMPANY_ATTACHED;
 
@@ -123,6 +124,9 @@ public class WorkFragment extends android.support.v4.app.Fragment implements Vie
             case R.id.tv_order_meetingroom:
                 break;
             case R.id.tv_post_board:
+                if(AppConfig.getInstance().isManager()){
+
+                }else ToastUtil.showShort(getActivity(), "只有管理员才能发布公告");
                 break;
         }
     }

@@ -4,9 +4,7 @@ import com.kx.officetool.R;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class MeetingRoom implements Serializable {
     private static final long serialVersionUID = 5077246312492265345L;
@@ -27,7 +25,7 @@ public class MeetingRoom implements Serializable {
 
     public enum Status {IDLE, ORDERING, USED}
 
-    String roomNumber;
+    String roomname;
     Status status = Status.IDLE;
     long fromTime;
     long endTime;
@@ -53,12 +51,12 @@ public class MeetingRoom implements Serializable {
         return this;
     }
 
-    public String getRoomNumber() {
-        return roomNumber;
+    public String getRoomname() {
+        return roomname;
     }
 
-    public MeetingRoom setRoomNumber(String roomNumber) {
-        this.roomNumber = roomNumber;
+    public MeetingRoom setRoomname(String roomname) {
+        this.roomname = roomname;
         return this;
     }
 

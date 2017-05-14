@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
+import com.kx.officetool.infos.CompanyInfo;
 import com.kx.officetool.infos.UserInfo;
 import com.kx.officetool.service.WebService;
 import com.kx.officetool.utils.CommonUtil;
@@ -123,6 +124,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                                 ToastUtil.showShort(LoginActivity.this, R.string.string_login_success);
                                 SharedPreferencesUtil.putObject(LoginActivity.this, UserInfo.KEY_USERINFO_OBJ, userInfo);
                                 mAppConfig.mUserInfo = userInfo;
+                                mAppConfig.refreshCompanyInfo();
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                 finish();
                             } else {

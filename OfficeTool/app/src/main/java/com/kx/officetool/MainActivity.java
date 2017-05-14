@@ -22,6 +22,12 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mAppConfig.refreshCompanyInfo();
+            }
+        }).start();
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tablayout);
         ViewPager viewpager = (ViewPager) findViewById(R.id.viewpager);
         final List<Fragment> fragmentList = new ArrayList<>();

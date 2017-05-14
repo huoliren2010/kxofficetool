@@ -145,4 +145,9 @@ public class UserInfo implements Serializable {
     public int getId() {
         return id;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return id == ((UserInfo)obj).getId();
+    }
 }

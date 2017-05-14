@@ -62,7 +62,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="string_finish">完成</string>
-    <string name="string_sign_hint">签到备注</string>
+    <string name="string_sign_hint">手动填写地址或等定位完成</string>
     <string name="string_trim">微调</string>
     <string name="prompt_nickname">用户名</string>
     <string name="string_regist_success">注册成功</string>
@@ -78,4 +78,6 @@
     <string name="string_add_manager_title">添加管理人</string>
     <string name="string_add_manager_hint">选择管理员</string>
     <string name="string_usercontacts">联系人</string>
+    <string name="string_add_meetingroom_title">添加会议室</string>
+    <string name="string_add_meetingroom_hint">请输入会议室名字</string>
 </resources>

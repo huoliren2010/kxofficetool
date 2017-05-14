@@ -4,22 +4,22 @@ import org.json.JSONObject;
 
 public class MeetingRoom {
 	int id;
-	String rname;
+	String roomname;
 	int companyid;
 
 	@Override
 	public String toString() {
 		JSONObject json = new JSONObject();
 		json.put("id", id);
-		if (rname != null)
-			json.put("rname", rname);
+		if (roomname != null)
+			json.put("roomname", roomname);
 		json.put("companyid", companyid);
 		return json.toString();
 	}
 
 	public MeetingRoom(int did, String rname2, int cid) {
 		this.id = did;
-		this.rname = rname2;
+		this.roomname = rname2;
 		this.companyid = cid;
 	}
 
@@ -32,11 +32,11 @@ public class MeetingRoom {
 	}
 
 	public String getRname() {
-		return rname;
+		return roomname;
 	}
 
 	public void setRname(String rname) {
-		this.rname = rname;
+		this.roomname = rname;
 	}
 
 	public int getCompanyid() {
@@ -50,8 +50,8 @@ public class MeetingRoom {
 	public JSONObject toJSONObject() {
 		JSONObject json = new JSONObject();
 		json.put("id", id);
-		if (rname != null)
-			json.put("rname", rname);
+		if (roomname != null)
+			json.put("roomname", roomname);
 		json.put("companyid", companyid);
 		return json;
 	}

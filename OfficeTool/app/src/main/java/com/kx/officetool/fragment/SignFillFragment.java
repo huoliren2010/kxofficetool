@@ -10,17 +10,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.Poi;
+import com.baidu.mapapi.map.Text;
 import com.kx.officetool.DailySignActivity;
 import com.kx.officetool.MainApplication;
 import com.kx.officetool.R;
 import com.kx.officetool.baiduservice.LocationService;
 import com.kx.officetool.infos.DailySignInfo;
+import com.kx.officetool.utils.ToastUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -31,7 +34,7 @@ public class SignFillFragment extends Fragment implements View.OnClickListener {
     private String mCurrentLocation, mCurrentTime;
     private TextView mTvTimeAddress;
     private EditText mEditText;
-
+    ProgressBar mProgressBar = null;
 
 
     @Nullable
@@ -47,9 +50,12 @@ public class SignFillFragment extends Fragment implements View.OnClickListener {
         viewRoot.findViewById(R.id.iv_back).setOnClickListener(this);
         viewRoot.findViewById(R.id.tv_ok).setOnClickListener(this);
         mTvTimeAddress = (TextView) viewRoot.findViewById(R.id.tv_datetime_and_address);
+        mProgressBar = (ProgressBar) viewRoot.findViewById(R.id.location_progress);
+        mProgressBar.setVisibility(View.VISIBLE);
         mEditText = (EditText) viewRoot.findViewById(R.id.editText);
         mTvTimeAddress.setText(String.format("%s  %s", getCurrentDateTime(), TextUtils.isEmpty(mCurrentLocation) ? "" : mCurrentLocation));
         viewRoot.findViewById(R.id.tv_trim).setOnClickListener(this);
+        mTvTimeAddress.setText(getCurrentDateTime() + "\n" + "定位中...");
     }
 
     public String getCurrentDateTime() {
@@ -60,7 +66,9 @@ public class SignFillFragment extends Fragment implements View.OnClickListener {
     public void setLocation(String address) {
         mCurrentLocation = address;
         if (mTvTimeAddress != null)
-            mTvTimeAddress.setText(getCurrentDateTime() + "\n" + (TextUtils.isEmpty(address) ? "" : address));
+            if (!TextUtils.isEmpty(address))
+                mProgressBar.setVisibility(View.GONE);
+        mTvTimeAddress.setText(getCurrentDateTime() + "\n" + (TextUtils.isEmpty(address) ? "" : address));
     }
 
     @Override
@@ -70,10 +78,17 @@ public class SignFillFragment extends Fragment implements View.OnClickListener {
                 getActivity().onBackPressed();
                 break;
             case R.id.tv_trim:
+                if(TextUtils.isEmpty(mCurrentLocation)){
+                    ToastUtil.showShort(getActivity(), "正在定位，请稍后。。。");
+                    return;
+                }
                 ((DailySignActivity) getActivity()).showBdLocationFragment();
                 break;
             case R.id.tv_ok:
-                ((DailySignActivity) getActivity()).addDailySignInfo(new DailySignInfo(mEditText.getText().toString(), mCurrentTime, mCurrentLocation));
+                if(!TextUtils.isEmpty(mEditText.getText().toString())){
+                    setLocation(mEditText.getText().toString());
+                }
+                ((DailySignActivity) getActivity()).addDailySignInfo(mEditText.getText().toString(), mCurrentTime, mCurrentLocation);
                 getActivity().onBackPressed();
                 break;
         }
@@ -109,9 +124,7 @@ public class SignFillFragment extends Fragment implements View.OnClickListener {
     };
 
     /*****
-     *
      * 定位结果回调，重写onReceiveLocation方法，可以直接拷贝如下代码到自己工程中修改
-     *
      */
     public BDLocationListener mListener = new BDLocationListener() {
 
@@ -123,18 +136,18 @@ public class SignFillFragment extends Fragment implements View.OnClickListener {
                 String addrStr = null;
                 if (address != null) {
                     addrStr = address.address;
-                    ((DailySignActivity)getActivity()).mMyAddress.setAddress(addrStr);
+                    ((DailySignActivity) getActivity()).mMyAddress.setAddress(addrStr);
                     Message message = mHandler.obtainMessage();
                     message.obj = addrStr;
                     mHandler.sendMessage(message);
                 }
-                 List<String> mListLocations = new ArrayList<>();
+                List<String> mListLocations = new ArrayList<>();
                 if (location.getPoiList() != null && !location.getPoiList().isEmpty()) {
                     for (int i = 0; i < location.getPoiList().size(); i++) {
                         Poi poi = location.getPoiList().get(i);
                         mListLocations.add(poi.getName());
                     }
-                    ((DailySignActivity)getActivity()).mMyAddress.setListNearBy(mListLocations);
+                    ((DailySignActivity) getActivity()).mMyAddress.setListNearBy(mListLocations);
                 }
                 if (mListLocations.size() > 0 && !TextUtils.isEmpty(addrStr)) {
                     locationService.unregisterListener(mListener); //注销掉监听

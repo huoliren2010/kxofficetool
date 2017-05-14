@@ -50,125 +50,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WebService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/WebService.java">
+      <file leaf-file-name="WorkFragment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/WorkFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3270">
-              <caret line="139" column="54" selection-start-line="139" selection-start-column="54" selection-end-line="139" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CompanyDepartMentFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CompanyDepartMentFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1050">
-              <caret line="63" column="17" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1884#1885#0" expanded="true" />
-                <element signature="e#1965#1966#0" expanded="true" />
-                <element signature="e#2030#2031#0" expanded="true" />
-                <element signature="e#2069#2070#0" expanded="true" />
-                <element signature="e#2134#2135#0" expanded="true" />
-                <element signature="e#2166#2167#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IWebService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/IWebService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="584">
-              <caret line="95" column="42" selection-start-line="95" selection-start-column="42" selection-end-line="95" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="28" column="65" selection-start-line="28" selection-start-column="65" selection-end-line="28" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserInfoResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/UserInfoResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="5" column="29" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fragment_company_manager.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_company_manager.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CompanyManagerFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CompanyManagerFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2610">
-              <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-              <folding>
-                <element signature="e#2281#2282#0" expanded="true" />
-                <element signature="e#2356#2357#0" expanded="true" />
-                <element signature="e#2421#2422#0" expanded="true" />
-                <element signature="e#2460#2461#0" expanded="true" />
-                <element signature="e#2525#2526#0" expanded="true" />
-                <element signature="e#2557#2558#0" expanded="true" />
-                <element signature="e#4192#5178#0" expanded="true" />
-                <element signature="e#4831#5136#0" expanded="true" />
-                <element signature="e#5135#5136#0" expanded="true" />
-                <element signature="e#5177#5178#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CompanyInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/CompanyInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1198">
-              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DepartMent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/DepartMent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/UserInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="494">
+              <caret line="119" column="65" selection-start-line="119" selection-start-column="65" selection-end-line="119" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -1888,57 +1774,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_work.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/BaseResponse.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/RegResponse.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/WebInterface.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/LogResponse.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/utils/ToastUtil.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/CompanyResponse.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/BaseActiivty.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/MainApplication.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/CreateCompanyActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/RegistActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_personal.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/WorkFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/BoooleanResponse.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/PersonalFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/NoticeResponse.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/Message.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/MessageResponse.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/ApprovalResponse.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/DailysignResponse.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/DepartMentResponse.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_company_details.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/CompanyDetailFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/ContactFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/AppConfig.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/DepartMent.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CreateCompanyActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/WorkFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CompanyDetailFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/BaseActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/CompanyDetailsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_companydepartment.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_dialog_adddepartment.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CompanyDepartMentFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/utils/IntentUtil.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_dialog_addmanager.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_choose_user.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/UserInfo.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/ChooseUserActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/Manager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/ManagerResponse.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/UserInfoResponse.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/IWebService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/WebService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/MeetingRoom.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/CompanysResponse.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_join_company.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/IntegerResponse.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/CompanyInfo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/UserInfo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/JoinCompanyActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/Actions.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/ChooseUserActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_dialog_addmanager.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_dialog_addmeetingroom.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/MettingRoomResponse.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CompanyMeetingRoomFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/AppConfig.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CompanyDepartMentFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CompanyManagerFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/WorkFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/DailySign.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/DailysignResponse.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/DailysignsResponse.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/IWebService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_sign_fill.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/WebService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/SignFillFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kx/officetool/DailySignActivity.java" />
       </list>
     </option>
   </component>
@@ -2010,6 +1896,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2079,6 +1969,62 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OfficeTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OfficeTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OfficeTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OfficeTool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2220,10 +2166,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2235,7 +2177,7 @@
     <property name="DEBUGGABLE_DEVICE" value="motorola-nexus_6-ZX1G225G7X" />
     <property name="DEBUGGABLE_PROCESS" value="com.kx.officetool" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="Comp&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/infos/CompanyInfo.java&#10;CompanyInfo&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/infos/CompanyInfo.java&#10;MainAc&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/MainActivity.java&#10;CompanyInf&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/infos/CompanyInfo.java&#10;androidMan&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/AndroidManifest.xml&#10;IWE&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/service/IWebService.java&#10;CompanyMan&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/fragment/CompanyManagerFragment.java&#10;w&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/fragment/WorkFragment.java&#10;Main&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/MainApplication.java&#10;CreateC&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/fragment/CreateCompanyActivity.java&#10;Mana&#9;PSI&#9;JAVA://com.kx.officetool.CompanyManagerFragment&#10;work&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/WorkFragment.java&#10;Regi&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/RegistActivity.java&#10;MainA&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/MainApplication.java&#10;Login&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/LoginActivity.java&#10;Logi&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/LoginActivity.java&#10;worFr&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/WorkFragment.java&#10;intentU&#9;PSI&#9;JAVA://com.kx.officetool.utils.IntentUtil&#10;Company&#9;PSI&#9;JAVA://com.kx.officetool.CompanyDetailFragment&#10;Bund&#9;PSI&#9;JAVA://android.os.Bundle&#10;PersonalF&#9;PSI&#9;JAVA://com.kx.officetool.PersonalFragment&#10;person&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/res/layout/fragment_personal.xml&#10;Wor&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/res/layout/fragment_work.xml&#10;web&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/service/WebService.java&#10;MainApp&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/MainApplication.java&#10;Dail&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/DailySignActivity.java&#10;regi&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/RegistActivity.java&#10;login&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/LoginActivity.java&#10;fragment_wo&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/res/layout/fragment_work.xml&#10;fragment&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/res/layout/fragment_personal.xml&#10;wo&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/WorkFragment.java&#10;per&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/res/layout/fragment_personal.xml&#10;ContactFra&#9;PSI&#9;JAVA://com.kx.officetool.ContactFragment&#10;mes&#9;PSI&#9;JAVA://com.kx.officetool.MessageFragment&#10;CompanyDet&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/CompanyDetailFragment.java&#10;Companyde&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/CompanyDetailsActivity.java&#10;Person&#9;PSI&#9;JAVA://com.kx.officetool.PersonalFragment&#10;FragmentPer&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/res/layout/fragment_personal.xml&#10;Android&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/AndroidManifest.xml&#10;createCompa&#9;PSI&#9;JAVA://com.kx.officetool.CreateCompanyActivity&#10;androidMani&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/AndroidManifest.xml&#10;wor&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/WorkFragment.java&#10;fragment_company_me&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/res/layout/fragment_company_meetingroom.xml&#10;fragmentPer&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/res/layout/fragment_personal.xml&#10;contac&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/res/layout/row_contact.xml&#10;andr&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/AndroidManifest.xml&#10;Load&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/infos/LoadUserAvatar.java&#10;us&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/infos/User.java&#10;user&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/infos/User.java&#10;userIn&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/infos/UserInfo.java" />
+    <property name="SearchEverywhereHistoryKey" value="workF&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/fragment/WorkFragment.java&#10;wor&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/fragment/WorkFragment.java&#10;App&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/AppConfig.java&#10;depar&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/fragment/CompanyDepartMentFragment.java&#10;Compa&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/fragment/CompanyManagerFragment.java&#10;IWE&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/service/IWebService.java&#10;CompanyMee&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/fragment/CompanyMeetingRoomFragment.java&#10;CompanyDeta&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/CompanyDetailsActivity.java&#10;CompanyMan&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/fragment/CompanyManagerFragment.java&#10;meet&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/fragment/CompanyMeetingRoomFragment.java&#10;CreateCom&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/fragment/CreateCompanyActivity.java&#10;Comp&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/fragment/CompanyManagerFragment.java&#10;wo&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/fragment/WorkFragment.java&#10;MeetingRo&#9;PSI&#9;JAVA://com.kx.officetool.infos.MeetingRoom&#10;CompanyInfo&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/infos/CompanyInfo.java&#10;MainAc&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/MainActivity.java&#10;CompanyInf&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/infos/CompanyInfo.java&#10;androidMan&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/AndroidManifest.xml&#10;w&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/fragment/WorkFragment.java&#10;Main&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/MainApplication.java&#10;CreateC&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/fragment/CreateCompanyActivity.java&#10;Mana&#9;PSI&#9;JAVA://com.kx.officetool.CompanyManagerFragment&#10;work&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/WorkFragment.java&#10;Regi&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/RegistActivity.java&#10;MainA&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/MainApplication.java&#10;Login&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/LoginActivity.java&#10;Logi&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/LoginActivity.java&#10;worFr&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/WorkFragment.java&#10;intentU&#9;PSI&#9;JAVA://com.kx.officetool.utils.IntentUtil&#10;Company&#9;PSI&#9;JAVA://com.kx.officetool.CompanyDetailFragment&#10;Bund&#9;PSI&#9;JAVA://android.os.Bundle&#10;PersonalF&#9;PSI&#9;JAVA://com.kx.officetool.PersonalFragment&#10;person&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/res/layout/fragment_personal.xml&#10;Wor&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/res/layout/fragment_work.xml&#10;web&#9;FILE&#9;file://E:/xx/kxofficetool/OfficeTool/app/src/main/java/com/kx/officetool/service/WebService.java&#10;MainApp&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/MainApplication.java&#10;Dail&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/DailySignActivity.java&#10;regi&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/RegistActivity.java&#10;login&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/LoginActivity.java&#10;fragment_wo&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/res/layout/fragment_work.xml&#10;fragment&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/res/layout/fragment_personal.xml&#10;per&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/res/layout/fragment_personal.xml&#10;ContactFra&#9;PSI&#9;JAVA://com.kx.officetool.ContactFragment&#10;mes&#9;PSI&#9;JAVA://com.kx.officetool.MessageFragment&#10;CompanyDet&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/CompanyDetailFragment.java&#10;Companyde&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/java/com/kx/officetool/CompanyDetailsActivity.java&#10;Person&#9;PSI&#9;JAVA://com.kx.officetool.PersonalFragment&#10;FragmentPer&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/res/layout/fragment_personal.xml&#10;Android&#9;FILE&#9;file://E:/xx/OfficeTool/app/src/main/AndroidManifest.xml&#10;createCompa&#9;PSI&#9;JAVA://com.kx.officetool.CreateCompanyActivity" />
     <property name="DEBUGGER_ID" value="Auto" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlEditorPanel.WIDTH" value="393" />
     <property name="last_opened_file_path" value="D:/workspace/AdWall" />
@@ -2247,15 +2189,17 @@
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="2.2.0" />
   </component>
   <component name="RecentsManager">
-    <key name="android.template.parentActivityClass">
-      <recent name="" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.kx.officetool.service.response" />
+      <recent name="com.kx.officetool" />
+      <recent name="com.kx.officetool.infos" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\xx\OfficeTool\app\src\main\res\drawable" />
     </key>
     <key name="android.template.packageName">
       <recent name="com.kx.officetool" />
       <recent name="officetool.kx.com.officetool" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\xx\OfficeTool\app\src\main\res\drawable" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.kx" />
@@ -2264,20 +2208,18 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\xx\kxofficetool\OfficeTool\app\src\main\java\com\kx\officetool\infos" />
+      <recent name="E:\xx\kxofficetool\OfficeTool\app\src\main\res\layout" />
       <recent name="E:\xx\OfficeTool\app\src\main\jniLibs\armeabi" />
       <recent name="E:\xx\OfficeTool\app\src\main\res\layout" />
       <recent name="E:\xx\OfficeTool\app\src\main\res\mipmap-xhdpi" />
-      <recent name="E:\xx\OfficeTool\app\src\main\jniLibs" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.kx.officetool.service.response" />
       <recent name="com.kx.officetool.service" />
       <recent name="com.kx.officetool" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.kx.officetool.service.response" />
-      <recent name="com.kx.officetool" />
-      <recent name="com.kx.officetool.infos" />
+    <key name="android.template.parentActivityClass">
+      <recent name="" />
     </key>
   </component>
   <component name="RunManager" selected="Android App.app">
@@ -2639,30 +2581,32 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32552955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.59643257" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5529543" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32552955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.59643257" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43176973" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32635984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32552955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21428572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5529543" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2670,8 +2614,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43176973" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -2695,18 +2637,6 @@
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/LoadUserAvatar.java</url>
-          <line>55</line>
-          <properties />
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/SignFillFragment.java</url>
-          <line>120</line>
-          <properties />
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/PersonalFragment.java</url>
           <line>108</line>
           <properties />
@@ -2714,21 +2644,9 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/WebService.java</url>
-          <line>86</line>
+          <line>93</line>
           <properties />
           <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/WorkFragment.java</url>
-          <line>62</line>
-          <properties />
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/WebService.java</url>
-          <line>107</line>
-          <properties />
-          <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CreateCompanyActivity.java</url>
@@ -2737,181 +2655,29 @@
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/WorkFragment.java</url>
-          <line>99</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/JoinCompanyActivity.java</url>
+          <line>180</line>
           <properties />
-          <option name="timeStamp" value="50" />
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/ChooseUserActivity.java</url>
+          <line>33</line>
+          <properties />
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/WebService.java</url>
+          <line>217</line>
+          <properties />
+          <option name="timeStamp" value="80" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="51" />
+      <option name="time" value="81" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="116" column="97" selection-start-line="116" selection-start-column="97" selection-end-line="116" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/BoooleanResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/CompanyResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/7ebc06b0cc7c2752a4883747e2c70b2b301df9c0/okhttp-3.6.0-sources.jar!/okhttp3/OkHttpClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="174" column="58" selection-start-line="174" selection-start-column="58" selection-end-line="174" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/NoticeResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/MessageResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/ApprovalResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/DailysignResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/RegistActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="74" column="64" selection-start-line="74" selection-start-column="64" selection-end-line="74" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_personal.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4680">
-          <caret line="156" column="47" selection-start-line="156" selection-start-column="33" selection-end-line="156" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/DepartMentResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_company_details.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_company_details.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="173" column="24" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/MessageFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/PersonalFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_contact.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="9" column="43" selection-start-line="0" selection-start-column="0" selection-end-line="71" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/ContactFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/row_contact.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CompanyMeetingRoomFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-960">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/AppConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="26" column="35" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/MainApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -2919,59 +2685,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/WorkFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="98" column="60" selection-start-line="98" selection-start-column="60" selection-end-line="98" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/BaseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CompanyDetailFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242">
-          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/CompanyDetailsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CreateCompanyActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2464">
-          <caret line="140" column="54" selection-start-line="140" selection-start-column="54" selection-end-line="140" selection-end-column="54" />
-          <folding>
-            <element signature="e#4623#5091#0" expanded="true" />
-            <element signature="e#5090#5091#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/SignFillFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="190" column="68" selection-start-line="190" selection-start-column="68" selection-end-line="190" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/DailySignActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -2993,14 +2710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/LoadUserAvatar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-71">
-          <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_dialog_adddepartment.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -3008,65 +2717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="619">
           <caret line="38" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="47" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_dialog_addmanager.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-364">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_companydepartment.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="35" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_company_manager.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_choose_user.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="28" column="33" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/ChooseUserActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="66" column="38" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1027#1578#0" expanded="true" />
-            <element signature="e#1577#1578#0" expanded="true" />
-            <element signature="e#1683#1684#0" expanded="true" />
-            <element signature="e#1746#1747#0" expanded="true" />
-            <element signature="e#1811#1812#0" expanded="true" />
-            <element signature="e#1850#1851#0" expanded="true" />
-            <element signature="e#1915#1916#0" expanded="true" />
-            <element signature="e#1947#1948#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3093,6 +2743,347 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/Manager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/DepartMent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#983#984#0" expanded="false" />
+            <element signature="e#1008#1009#0" expanded="false" />
+            <element signature="e#1041#1042#0" expanded="false" />
+            <element signature="e#1069#1070#0" expanded="false" />
+            <element signature="e#1104#1105#0" expanded="false" />
+            <element signature="e#1135#1136#0" expanded="false" />
+            <element signature="e#1183#1184#0" expanded="false" />
+            <element signature="e#1223#1224#0" expanded="false" />
+            <element signature="e#1256#1257#0" expanded="false" />
+            <element signature="e#1288#1289#0" expanded="false" />
+            <element signature="e#1335#1336#0" expanded="false" />
+            <element signature="e#1377#1378#0" expanded="false" />
+            <element signature="e#1409#1410#0" expanded="false" />
+            <element signature="e#1440#1441#0" expanded="false" />
+            <element signature="e#1485#1486#0" expanded="false" />
+            <element signature="e#1525#1526#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/LoadUserAvatar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/CompanysResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#261#262#0" expanded="true" />
+            <element signature="e#312#313#0" expanded="true" />
+            <element signature="e#344#345#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/CompanyResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_choose_user.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="32" column="38" selection-start-line="27" selection-start-column="4" selection-end-line="32" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_join_company.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="138" column="33" selection-start-line="138" selection-start-column="25" selection-end-line="138" selection-end-column="33" />
+          <folding>
+            <element signature="e#4035#5168#0" expanded="false" />
+            <element signature="e#5173#5626#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/IntegerResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+          <folding>
+            <element signature="e#164#165#0" expanded="true" />
+            <element signature="e#201#202#0" expanded="true" />
+            <element signature="e#233#234#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/BoooleanResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CreateCompanyActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="137" column="31" selection-start-line="137" selection-start-column="31" selection-end-line="137" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/MeetingRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="889">
+          <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
+          <folding>
+            <element signature="e#1480#1481#0" expanded="true" />
+            <element signature="e#1511#1512#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/CompanyInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="77" column="26" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
+          <folding>
+            <element signature="e#1609#1610#0" expanded="true" />
+            <element signature="e#1646#1647#0" expanded="true" />
+            <element signature="e#2338#2339#0" expanded="true" />
+            <element signature="e#2384#2385#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="128" column="41" selection-start-line="128" selection-start-column="41" selection-end-line="128" selection-end-column="41" />
+          <folding>
+            <element signature="e#4109#5086#0" expanded="true" />
+            <element signature="e#4377#4406#0" expanded="true" />
+            <element signature="e#5085#5086#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+          <folding>
+            <element signature="e#856#999#0" expanded="true" />
+            <element signature="e#998#999#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/JoinCompanyActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="186" column="67" selection-start-line="186" selection-start-column="67" selection-end-line="186" selection-end-column="67" />
+          <folding>
+            <element signature="e#4701#7563#0" expanded="true" />
+            <element signature="e#4965#7521#0" expanded="true" />
+            <element signature="e#5202#5588#0" expanded="true" />
+            <element signature="e#5587#5588#0" expanded="true" />
+            <element signature="e#5767#5768#0" expanded="true" />
+            <element signature="e#5884#5885#0" expanded="true" />
+            <element signature="e#6005#6006#0" expanded="true" />
+            <element signature="e#6100#6101#0" expanded="true" />
+            <element signature="e#6221#6222#0" expanded="true" />
+            <element signature="e#6309#6310#0" expanded="true" />
+            <element signature="e#7520#7521#0" expanded="true" />
+            <element signature="e#7562#7563#0" expanded="true" />
+            <element signature="e#7812#8728#0" expanded="true" />
+            <element signature="e#8441#8684#0" expanded="true" />
+            <element signature="e#8683#8684#0" expanded="true" />
+            <element signature="e#8727#8728#0" expanded="true" />
+            <element signature="e#8784#8785#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/CompanyDetailsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="17" column="57" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/Actions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CompanyDetailFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="97" column="96" selection-start-line="97" selection-start-column="96" selection-end-line="97" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/ChooseUserActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#960#1538#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_dialog_addmeetingroom.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+          <folding>
+            <element signature="e#516#554#0" expanded="true" />
+            <element signature="e#882#919#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_company_meetingroom.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="47" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_dialog_addmanager.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+          <folding>
+            <element signature="e#1130#1163#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_company_manager.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="20" column="43" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CompanyMeetingRoomFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="43" column="50" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="50" />
+          <folding>
+            <element signature="e#2421#2422#0" expanded="true" />
+            <element signature="e#2460#2461#0" expanded="true" />
+            <element signature="e#2525#2526#0" expanded="true" />
+            <element signature="e#2557#2558#0" expanded="true" />
+            <element signature="e#3780#3845#0" expanded="true" />
+            <element signature="e#4851#6067#0" expanded="true" />
+            <element signature="e#5565#6025#0" expanded="true" />
+            <element signature="e#6024#6025#0" expanded="true" />
+            <element signature="e#6066#6067#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/MettingRoomResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+          <folding>
+            <element signature="e#202#203#0" expanded="true" />
+            <element signature="e#229#230#0" expanded="true" />
+            <element signature="e#306#307#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_companydepartment.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="24" column="36" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CompanyDepartMentFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="44" column="50" selection-start-line="44" selection-start-column="7" selection-end-line="44" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CompanyManagerFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5259#5755#0" expanded="true" />
+            <element signature="e#5754#5755#0" expanded="true" />
+            <element signature="e#7214#7638#0" expanded="true" />
+            <element signature="e#7637#7638#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/UserInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -3101,90 +3092,132 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CompanyDepartMentFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/DailysignResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="63" column="17" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1884#1885#0" expanded="true" />
-            <element signature="e#1965#1966#0" expanded="true" />
-            <element signature="e#2030#2031#0" expanded="true" />
-            <element signature="e#2069#2070#0" expanded="true" />
-            <element signature="e#2134#2135#0" expanded="true" />
-            <element signature="e#2166#2167#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/Manager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="28" column="65" selection-start-line="28" selection-start-column="65" selection-end-line="28" selection-end-column="65" />
+        <state relative-caret-position="270">
+          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/CompanyManagerFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/response/DailysignsResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2610">
-          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+        <state relative-caret-position="240">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="e#2281#2282#0" expanded="true" />
-            <element signature="e#2356#2357#0" expanded="true" />
-            <element signature="e#2421#2422#0" expanded="true" />
-            <element signature="e#2460#2461#0" expanded="true" />
-            <element signature="e#2525#2526#0" expanded="true" />
-            <element signature="e#2557#2558#0" expanded="true" />
-            <element signature="e#4192#5178#0" expanded="true" />
-            <element signature="e#4831#5136#0" expanded="true" />
-            <element signature="e#5135#5136#0" expanded="true" />
-            <element signature="e#5177#5178#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/AppConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="54" column="9" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/WebService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3270">
-          <caret line="139" column="54" selection-start-line="139" selection-start-column="54" selection-end-line="139" selection-end-column="54" />
+        <state relative-caret-position="374">
+          <caret line="225" column="32" selection-start-line="225" selection-start-column="32" selection-end-line="225" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="64" column="29" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/DepartMent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_sign_fill.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/CompanyInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1198">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="296">
+          <caret line="48" column="33" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="33" />
+          <folding>
+            <element signature="e#2027#2053#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/service/IWebService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="95" column="42" selection-start-line="95" selection-start-column="42" selection-end-line="95" selection-end-column="42" />
+        <state relative-caret-position="208">
+          <caret line="104" column="36" selection-start-line="104" selection-start-column="36" selection-end-line="104" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/DailySignActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="139" column="29" selection-start-line="139" selection-start-column="29" selection-end-line="139" selection-end-column="29" />
+          <folding>
+            <element signature="e#2183#2362#0" expanded="true" />
+            <element signature="e#2361#2362#0" expanded="true" />
+            <element signature="e#2503#2632#0" expanded="true" />
+            <element signature="e#2631#2632#0" expanded="true" />
+            <element signature="e#2823#2970#0" expanded="true" />
+            <element signature="e#2969#2970#0" expanded="true" />
+            <element signature="e#4843#5747#0" expanded="true" />
+            <element signature="e#5270#5477#0" expanded="true" />
+            <element signature="e#5476#5477#0" expanded="true" />
+            <element signature="e#5720#5721#0" expanded="true" />
+            <element signature="e#5746#5747#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/DailySign.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/infos/DailySignInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/utils/ToastUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/SignFillFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1029">
+          <caret line="97" column="44" selection-start-line="97" selection-start-column="44" selection-end-line="97" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kx/officetool/fragment/WorkFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="119" column="65" selection-start-line="119" selection-start-column="65" selection-end-line="119" selection-end-column="65" />
+          <folding />
         </state>
       </provider>
     </entry>

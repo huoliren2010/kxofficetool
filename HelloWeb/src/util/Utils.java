@@ -6,6 +6,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import info.Approval;
+import info.CompanyInfo;
+import info.DailySign;
 import info.Message;
 import info.Notice;
 import info.UserInfo;
@@ -46,6 +48,26 @@ public class Utils {
 		if(list.isEmpty())return null;
 		JSONArray jsonArray = new JSONArray();
 		for(Message approv: list){
+			jsonArray.put(approv.toJSONObject());
+		}
+		return jsonArray;
+	}
+
+	public static JSONArray transFromCompanyInfos(List<CompanyInfo> companyInfo) {
+		if(companyInfo == null)return null;
+		if(companyInfo.isEmpty())return null;
+		JSONArray jsonArray = new JSONArray();
+		for(CompanyInfo approv: companyInfo){
+			jsonArray.put(approv.toJSONObject());
+		}
+		return jsonArray;
+	}
+
+	public static JSONArray transFromDailySigns(List<DailySign> queryDailySign) {
+		if(queryDailySign == null)return null;
+		if(queryDailySign.isEmpty())return null;
+		JSONArray jsonArray = new JSONArray();
+		for(DailySign approv: queryDailySign){
 			jsonArray.put(approv.toJSONObject());
 		}
 		return jsonArray;

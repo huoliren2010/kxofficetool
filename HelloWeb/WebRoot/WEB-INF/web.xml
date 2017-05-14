@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
 
 	<servlet>
 		<servlet-name>LogLet</servlet-name>
@@ -9,7 +11,7 @@
 		<servlet-name>RegLet</servlet-name>
 		<servlet-class>com.servlet.RegLet</servlet-class>
 	</servlet>
-	
+
 	<servlet>
 		<servlet-name>CreateCompany</servlet-name>
 		<servlet-class>com.servlet.CreateCompany</servlet-class>
@@ -29,6 +31,10 @@
 	<servlet>
 		<servlet-name>QueryCompany</servlet-name>
 		<servlet-class>com.servlet.QueryCompany</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>QueryCompanys</servlet-name>
+		<servlet-class>com.servlet.QueryCompanys</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>CreateRoom</servlet-name>
@@ -70,6 +76,14 @@
 		<servlet-name>QueryMessage</servlet-name>
 		<servlet-class>com.servlet.QueryMessage</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>JoinCompany</servlet-name>
+		<servlet-class>com.servlet.JoinCompany</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>QueryDailySign</servlet-name>
+		<servlet-class>com.servlet.QueryDailySign</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>LogLet</servlet-name>
@@ -79,7 +93,7 @@
 		<servlet-name>RegLet</servlet-name>
 		<url-pattern>/RegLet</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>CreateCompany</servlet-name>
 		<url-pattern>/CreateCompany</url-pattern>
@@ -99,6 +113,10 @@
 	<servlet-mapping>
 		<servlet-name>QueryCompany</servlet-name>
 		<url-pattern>/QueryCompany</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>QueryCompanys</servlet-name>
+		<url-pattern>/QueryCompanys</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>CreateRoom</servlet-name>
@@ -139,6 +157,14 @@
 	<servlet-mapping>
 		<servlet-name>QueryMessage</servlet-name>
 		<url-pattern>/QueryMessage</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>JoinCompany</servlet-name>
+		<url-pattern>/JoinCompany</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>QueryDailySign</servlet-name>
+		<url-pattern>/QueryDailySign</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

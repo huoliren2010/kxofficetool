@@ -4,14 +4,20 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.kx.officetool.infos.CompanyInfo;
+import com.kx.officetool.infos.DailySign;
 import com.kx.officetool.infos.DepartMent;
 import com.kx.officetool.infos.Manager;
+import com.kx.officetool.infos.MeetingRoom;
 import com.kx.officetool.infos.UserInfo;
 import com.kx.officetool.service.response.BoooleanResponse;
 import com.kx.officetool.service.response.CompanyResponse;
+import com.kx.officetool.service.response.CompanysResponse;
+import com.kx.officetool.service.response.DailysignResponse;
+import com.kx.officetool.service.response.DailysignsResponse;
 import com.kx.officetool.service.response.DepartMentResponse;
+import com.kx.officetool.service.response.IntegerResponse;
 import com.kx.officetool.service.response.LogResponse;
-import com.kx.officetool.service.response.ManagerResponse;
+import com.kx.officetool.service.response.MettingRoomResponse;
 import com.kx.officetool.service.response.RegResponse;
 import com.kx.officetool.service.response.UserInfoResponse;
 
@@ -21,6 +27,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -125,7 +132,23 @@ public class WebService {
         return null;
     }
 
-    public DepartMent createDepartMent(String departName, int compayid, int uid){
+    public CompanyInfo QueryCompanyByDepartId(int departid) {
+        Map<String, String> params = new HashMap<>();
+        params.put("departmentid", String.valueOf(departid));
+        Call<CompanyResponse> companyResponseCall = mIWebService.queryCompany(params);
+        try {
+            Response<CompanyResponse> execute = companyResponseCall.execute();
+            CompanyInfo data = execute.body().getData();
+            return data;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public DepartMent createDepartMent(String departName, int compayid, int uid) {
         Call<DepartMentResponse> departMent = mIWebService.createDepartMent(departName, compayid, uid);
         try {
             Response<DepartMentResponse> execute = departMent.execute();
@@ -136,7 +159,7 @@ public class WebService {
         return null;
     }
 
-    public UserInfo createManager(int uid, int companayid){
+    public UserInfo createManager(int uid, int companayid) {
         Call<UserInfoResponse> manager = mIWebService.createManager(uid, companayid);
         try {
             Response<UserInfoResponse> execute = manager.execute();
@@ -148,4 +171,68 @@ public class WebService {
     }
 
 
+    public List<CompanyInfo> QueryCompanyByCompanyName(String cname) {
+        Call<CompanysResponse> companyResponseCall = mIWebService.queryCompanys(cname);
+        try {
+            Response<CompanysResponse> execute = companyResponseCall.execute();
+            List<CompanyInfo> data = execute.body().getData();
+            return data;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public int JoinCompany(int uid, int companyid) {
+        Call<IntegerResponse> boooleanResponseCall = mIWebService.joinCompany(uid, companyid);
+        try {
+            Response<IntegerResponse> execute = boooleanResponseCall.execute();
+            return execute.body().getData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public MeetingRoom createMeetinRoom(String name, int companyId) {
+        Map<String, String> params = new HashMap<>();
+        params.put("roomname", name);
+        params.put("companyid", String.valueOf(companyId));
+        Call<MettingRoomResponse> companyRoom = mIWebService.createCompanyRoom(params);
+        Response<MettingRoomResponse> execute = null;
+        try {
+            execute = companyRoom.execute();
+            return execute.body().getData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<DailySign> queryDailySign(int id, int departmentid) {
+        Call<DailysignsResponse> dailysignResponseCall = mIWebService.queryDailysign(id, departmentid);
+        try {
+            Response<DailysignsResponse> execute = dailysignResponseCall.execute();
+            return execute.body().getData();
+        } catch (IOException e) {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public DailySign createDailySign(int uid, int departid, String address) {
+        Call<DailysignResponse> dailysign = mIWebService.createDailysign(uid, departid, address);
+        Response<DailysignResponse> execute = null;
+        try {
+            execute = dailysign.execute();
+            return execute.body().getData();
+        } catch (IOException e) {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

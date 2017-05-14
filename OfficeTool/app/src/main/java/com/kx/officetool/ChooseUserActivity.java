@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.kx.officetool.infos.Actions;
 import com.kx.officetool.infos.CompanyInfo;
 import com.kx.officetool.infos.UserInfo;
 import com.kx.officetool.utils.DensityUtil;
@@ -23,10 +24,7 @@ public class ChooseUserActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_user);
-        CompanyInfo companyInfo = mAppConfig.mCompanyInfo;
-        if(companyInfo != null){
-            mList = companyInfo.getCompanyMembers();
-        }
+        mList = mAppConfig.getNormalUserList();
         ListView mListView = (ListView) findViewById(R.id.listview);
         mListView.setAdapter(mAdapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -34,9 +32,9 @@ public class ChooseUserActivity extends BaseActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try {
                     UserInfo userInfo = mList.get(position);
-                    Intent intent = new Intent();
+                    Intent intent = new Intent(Actions.ACTION_ON_COMPANY_ATTACHED);
                     intent.putExtra("userinfo", userInfo);
-                    setResult(RESULT_OK, intent);
+                    sendBroadcast(intent);
                     finish();
                 } catch (Exception e) {
                     e.printStackTrace();

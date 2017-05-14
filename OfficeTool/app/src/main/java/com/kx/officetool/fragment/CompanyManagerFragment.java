@@ -1,8 +1,10 @@
 package com.kx.officetool.fragment;
 
 import android.app.Dialog;
-import android.content.ContentResolver;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kx.officetool.AppConfig;
 import com.kx.officetool.BaseActivity;
@@ -26,17 +29,15 @@ import com.kx.officetool.infos.LoadUserAvatar;
 import com.kx.officetool.infos.Manager;
 import com.kx.officetool.infos.UserInfo;
 import com.kx.officetool.service.WebService;
-import com.kx.officetool.utils.AppUtil;
-import com.kx.officetool.utils.IntentUtil;
 import com.kx.officetool.utils.SharedPreferencesUtil;
+import com.kx.officetool.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.app.Activity.RESULT_OK;
+import static com.kx.officetool.infos.Actions.ACTION_ON_COMPANY_ATTACHED;
 
 public class CompanyManagerFragment extends Fragment implements View.OnClickListener {
-    private static final int REQUEST_CONTACTS = 0x0020;
     CompanyInfo mCompanyInfo;
     ListView mListView;
     List<UserInfo> listMangers = null;
@@ -52,6 +53,9 @@ public class CompanyManagerFragment extends Fragment implements View.OnClickList
         super.onActivityCreated(savedInstanceState);
         View viewRoot = getView();
         viewRoot.findViewById(R.id.tv_add_manager).setOnClickListener(this);
+        if (AppConfig.getInstance().isManager()) {
+            viewRoot.findViewById(R.id.tv_add_manager).setVisibility(View.VISIBLE);
+        } else viewRoot.findViewById(R.id.tv_add_manager).setVisibility(View.GONE);
         mCompanyInfo = AppConfig.getInstance().mCompanyInfo;
         listMangers = mCompanyInfo.getManager();
         if (listMangers == null) listMangers = new ArrayList<>(0);
@@ -105,6 +109,10 @@ public class CompanyManagerFragment extends Fragment implements View.OnClickList
                 mAddDialog = null;
                 break;
             case R.id.btn_ensure:
+                if (mChooseUserInfo == null) {
+                    ToastUtil.show(getActivity(), "未选择要添加的管理员", Toast.LENGTH_SHORT);
+                    return;
+                }
                 ((BaseActivity) getActivity()).showProgressDlg();
                 new Thread(new Runnable() {
                     @Override
@@ -120,13 +128,16 @@ public class CompanyManagerFragment extends Fragment implements View.OnClickList
                             public void run() {
                                 mAdapter.notifyDataSetChanged();
                                 ((BaseActivity) getActivity()).hideProgressDlg();
+                                if (mAddDialog != null && mAddDialog.isShowing())
+                                    mAddDialog.dismiss();
+                                mAddDialog = null;
                             }
                         });
                     }
                 }).start();
                 break;
             case R.id.rl_contacts:
-                getActivity().startActivityForResult(new Intent(getActivity(), ChooseUserActivity.class), REQUEST_CONTACTS);
+                getActivity().startActivity(new Intent(getActivity(), ChooseUserActivity.class));
                 break;
         }
     }
@@ -147,15 +158,6 @@ public class CompanyManagerFragment extends Fragment implements View.OnClickList
 
     UserInfo mChooseUserInfo = null;
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CONTACTS && resultCode == RESULT_OK) {
-            mChooseUserInfo = (UserInfo) data.getSerializableExtra("userinfo");
-            mTvContacts.setText(mChooseUserInfo.getUserAvatar() + "\n " + mChooseUserInfo.getPhoneNumber());
-        }
-    }
-
     class ViewHolder {
         TextView header;
         ImageView avatar;
@@ -164,5 +166,28 @@ public class CompanyManagerFragment extends Fragment implements View.OnClickList
         TextView unread_msg_number;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getActivity().registerReceiver(mBroadcastReceiver, new IntentFilter(ACTION_ON_COMPANY_ATTACHED));
+    }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        getActivity().unregisterReceiver(mBroadcastReceiver);
+    }
+
+
+    BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            try {
+                mChooseUserInfo = (UserInfo) intent.getSerializableExtra("userinfo");
+                mTvContacts.setText(mChooseUserInfo.getUserName() + "\n" + mChooseUserInfo.getPhoneNumber());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
 }

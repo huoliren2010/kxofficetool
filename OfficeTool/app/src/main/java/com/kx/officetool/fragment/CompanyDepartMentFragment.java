@@ -42,6 +42,9 @@ public class CompanyDepartMentFragment extends Fragment implements View.OnClickL
         super.onActivityCreated(savedInstanceState);
         View rootView = getView();
         rootView.findViewById(R.id.btn_add).setOnClickListener(this);
+        if (AppConfig.getInstance().isManager()) {
+            rootView.findViewById(R.id.btn_add).setVisibility(View.VISIBLE);
+        } else rootView.findViewById(R.id.btn_add).setVisibility(View.GONE);
         CompanyInfo mCompanyInfo = AppConfig.getInstance().mCompanyInfo;
         if (mCompanyInfo != null) {
             departMentList = mCompanyInfo.getDepartment();
@@ -109,7 +112,8 @@ public class CompanyDepartMentFragment extends Fragment implements View.OnClickL
                                 public void run() {
                                     ((BaseActivity) getActivity()).hideProgressDlg();
                                     mAdapter.notifyDataSetChanged();
-                                    if (mAddDialog != null && mAddDialog.isShowing()) mAddDialog.dismiss();
+                                    if (mAddDialog != null && mAddDialog.isShowing())
+                                        mAddDialog.dismiss();
                                     mAddDialog = null;
                                 }
                             });

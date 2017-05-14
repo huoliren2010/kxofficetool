@@ -4,10 +4,14 @@ import com.kx.officetool.infos.UserInfo;
 import com.kx.officetool.service.response.ApprovalResponse;
 import com.kx.officetool.service.response.BoooleanResponse;
 import com.kx.officetool.service.response.CompanyResponse;
+import com.kx.officetool.service.response.CompanysResponse;
 import com.kx.officetool.service.response.DailysignResponse;
+import com.kx.officetool.service.response.DailysignsResponse;
 import com.kx.officetool.service.response.DepartMentResponse;
+import com.kx.officetool.service.response.IntegerResponse;
 import com.kx.officetool.service.response.LogResponse;
 import com.kx.officetool.service.response.MessageResponse;
+import com.kx.officetool.service.response.MettingRoomResponse;
 import com.kx.officetool.service.response.NoticeResponse;
 import com.kx.officetool.service.response.RegResponse;
 import com.kx.officetool.service.response.UserInfoResponse;
@@ -31,6 +35,9 @@ public interface IWebService {
 
     @GET("HelloWeb/CreateCompany")
     Call<CompanyResponse> createCompany(@Query("companyname") String companyname, @Query("uid") int uid);
+    @GET("HelloWeb/QueryCompany")
+    Call<CompanyResponse> queryCompany(@QueryMap Map<String, String> params);
+
 
     @GET("HelloWeb/UpdateUserInfo")
     Call<RegResponse> updateUserInfo(@QueryMap Map<String, String> params);
@@ -50,8 +57,8 @@ public interface IWebService {
     @GET("HelloWeb/DeleteDepartMent")
     Call<BoooleanResponse> deleteDepartMent(@QueryMap Map<String, String> params);
 
-    @GET("HelloWeb/CreateCompanyRoom")
-    Call<BoooleanResponse> createCompanyRoom(@QueryMap Map<String, String> params);
+    @GET("HelloWeb/CreateRoom")
+    Call<MettingRoomResponse> createCompanyRoom(@QueryMap Map<String, String> params);
 
     @GET("HelloWeb/UpdateCompanyRoom")
     Call<BoooleanResponse> updateCompanyRoom(@QueryMap Map<String, String> params);
@@ -92,8 +99,8 @@ public interface IWebService {
     @GET("HelloWeb/QueryApproval")
     Call<ApprovalResponse> queryApproval(@QueryMap Map<String, String> params);
 
-    @GET("HelloWeb/CreateDailysign")
-    Call<BoooleanResponse> createDailysign(@QueryMap Map<String, String> params);
+    @GET("HelloWeb/CreateDailySign")
+    Call<DailysignResponse> createDailysign(@Query("uid") int uid, @Query("departid") int departid, @Query("address")String address);
 
     @GET("HelloWeb/DeleteDailysign")
     Call<BoooleanResponse> deleteDailysign(@QueryMap Map<String, String> params);
@@ -101,7 +108,13 @@ public interface IWebService {
     @GET("HelloWeb/UpdateDailysign")
     Call<BoooleanResponse> updateDailysign(@QueryMap Map<String, String> params);
 
-    @GET("HelloWeb/QueryDailysign")
-    Call<DailysignResponse> queryDailysign(@QueryMap Map<String, String> params);
+    @GET("HelloWeb/QueryDailySign")
+    Call<DailysignsResponse> queryDailysign(@Query("uid") int uid, @Query("departid") int departid);
+
+    @GET("HelloWeb/QueryCompanys")
+    Call<CompanysResponse> queryCompanys(@Query("name") String name);
+
+    @GET("HelloWeb/JoinCompany")
+    Call<IntegerResponse> joinCompany(@Query("uid") int uid, @Query("companyid") int companyid);
 
 }

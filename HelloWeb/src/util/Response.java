@@ -53,6 +53,13 @@ public class Response {
 		this.message = message;
 	}
 
+	public Response(int status, String data, String message) {
+		super();
+		this.status = status;
+		this.data = data;
+		this.message = message;
+	}
+
 	public Response(int status, JSONArray data, String message) {
 		super();
 		this.status = status;
