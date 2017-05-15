@@ -24,6 +24,7 @@ import com.kx.officetool.service.WebService;
 import com.kx.officetool.utils.SharedPreferencesUtil;
 import com.kx.officetool.utils.ToastUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CompanyMeetingRoomFragment extends Fragment implements View.OnClickListener {
@@ -118,7 +119,9 @@ public class CompanyMeetingRoomFragment extends Fragment implements View.OnClick
                         String name = mEditText.getText().toString();
                        MeetingRoom meetingRoom = WebService.getInstance().createMeetinRoom(name, appConfig.mCompanyInfo.getCompanyId());
                         if(meetingRoom != null){
-                            companyMeetingRooms.add(meetingRoom);
+                            if(companyMeetingRooms == null)
+                                companyMeetingRooms = new ArrayList<MeetingRoom>();
+                                companyMeetingRooms.add(meetingRoom);
                             appConfig.mCompanyInfo.setCompanyMeetingRooms(companyMeetingRooms);
                             appConfig.refreshCompanyInfo();
                         }

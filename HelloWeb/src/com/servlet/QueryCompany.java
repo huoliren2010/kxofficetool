@@ -63,8 +63,10 @@ public class QueryCompany extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		
-		String resp = new Response(status, companyInfo.toJSONObject(), message).toString();
+		String resp = new Response(status, "", message).toString();
+		if(companyInfo != null){
+			resp = new Response(status, companyInfo.toJSONObject(), message).toString();
+		}
 		System.out.println(TAG+" resp=" + resp);
 		out.print(resp);
 		// out.print("ÓÃ»§Ãû£º" + username);

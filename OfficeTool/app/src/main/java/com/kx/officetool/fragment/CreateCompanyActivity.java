@@ -127,6 +127,9 @@ public class CreateCompanyActivity extends BaseActivity implements View.OnClickL
             @Override
             public void run() {
                 CompanyInfo companyInfo = WebService.getInstance().createCompany(companyName, mAppConfig.mUserInfo.getId());
+                mAppConfig.mUserInfo.setDepartmentid(companyInfo.getDepartment().get(0).getId());
+                WebService.getInstance().updateUserInfo(mAppConfig.mUserInfo);
+                mAppConfig.refreshCompanyInfo();
                 createCompany(companyInfo);
             }
         }).start();
@@ -137,8 +140,6 @@ public class CreateCompanyActivity extends BaseActivity implements View.OnClickL
             @Override
             public void run() {
                 mTvResultCompanyName.setText(String.format(getResources().getString(R.string.string_format_company_name), companyInfo.getCompanyName()));
-                SharedPreferencesUtil.putObject(CreateCompanyActivity.this, CompanyInfo.KEY_COMPANYINFO_OBJ, companyInfo);
-                mAppConfig.mCompanyInfo = companyInfo;
                 onCompanyCreateSuccess();
             }
         });

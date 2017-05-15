@@ -164,8 +164,8 @@ public class Service {
 					int uidColoumn = rs.findColumn("ownerid");
 					int cuid = rs.getInt(uidColoumn);
 					CompanyInfo company = new CompanyInfo(cid, cname, cuid);
-					dbmanager.closeDB();
 					// create default department
+					dbmanager.closeDB();
 					DepartMent departMent = createDepartMent(CommonInfo.NOMRAL_DEPARTMENT, cid, cuid);
 					if (departMent != null) {
 						List<DepartMent> list = new ArrayList<DepartMent>();

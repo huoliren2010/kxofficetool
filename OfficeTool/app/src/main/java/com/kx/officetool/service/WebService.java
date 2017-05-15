@@ -96,6 +96,7 @@ public class WebService {
             UserInfo data = execute.body().getData();
             return data;
         } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -209,6 +210,7 @@ public class WebService {
             execute = companyRoom.execute();
             return execute.body().getData();
         } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;

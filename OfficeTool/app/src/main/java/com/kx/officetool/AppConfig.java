@@ -41,27 +41,32 @@ public class AppConfig {
 
     public boolean isManager() {
         ensureInfos();
+        if (mUserInfo.getId() == mCompanyInfo.getOwnerid()) return true;
         List<UserInfo> manager = mCompanyInfo.getManager();
         if (manager != null && manager.size() > 0)
-            return (manager.contains(mUserInfo) || mUserInfo.getId() == mCompanyInfo.getOwnerid());
+            return (manager.contains(mUserInfo));
         return false;
     }
 
-    public void refreshCompanyInfo(){
+    public void refreshCompanyInfo() {
+        UserInfo userInfo = WebService.getInstance().login(mUserInfo.getUsername(), mUserInfo.getPassword());
+        saveUserInfo(userInfo);
+        if(mUserInfo.getDepartmentid() == -1)return;
         CompanyInfo companyInfo = WebService.getInstance().QueryCompanyByDepartId(mUserInfo.getDepartmentid());
-        if((companyInfo != null)) {
+        if ((companyInfo != null)) {
             SharedPreferencesUtil.putObject(mContext, CompanyInfo.KEY_COMPANYINFO_OBJ, companyInfo);
             mCompanyInfo = companyInfo;
         }
     }
 
-    public UserInfo getUserInfo(){
-        if(mUserInfo == null)mUserInfo = SharedPreferencesUtil.getObject(mContext, UserInfo.KEY_USERINFO_OBJ, UserInfo.class);
+    public UserInfo getUserInfo() {
+        if (mUserInfo == null)
+            mUserInfo = SharedPreferencesUtil.getObject(mContext, UserInfo.KEY_USERINFO_OBJ, UserInfo.class);
         return mUserInfo;
     }
 
-    public void saveUserInfo(UserInfo userInfo){
-        if(userInfo ==null)return;
+    public void saveUserInfo(UserInfo userInfo) {
+        if (userInfo == null) return;
         mUserInfo = userInfo;
         SharedPreferencesUtil.putObject(mContext, UserInfo.KEY_USERINFO_OBJ, userInfo);
     }
@@ -70,8 +75,8 @@ public class AppConfig {
         List<UserInfo> companyMembers = mCompanyInfo.getCompanyMembers();
         List<UserInfo> manager = mCompanyInfo.getManager();
         List<UserInfo> normals = new ArrayList<>();
-        for(UserInfo userInfo : companyMembers){
-            if(manager.contains(userInfo))continue;
+        for (UserInfo userInfo : companyMembers) {
+            if (manager != null && manager.contains(userInfo)) continue;
             normals.add(userInfo);
         }
         return normals;
